@@ -1,8 +1,9 @@
 
 mixin sidebar__link_item(icon, name, link) 
 	li.sidebar__link_item(onclick="location.href='#{link}'", style="cursor: pointer")
-		.sidebar__link_item__icon
-			i.fa(class=icon)
+		span.sidebar__link_item__icon.fa-stack.fa-lg
+			i.fa.fa-stack-2x.fa-circle
+			i.sidebar__link_item__icon__inner.fa.fa-stack-1x.fa-inverse(class=icon)
 		.sidebar__link_item__name=name
 
 mixin lorem()
@@ -23,18 +24,20 @@ html
 	body(style='opacity: 0')
 		script(type="text/javascript", src="/js/vendor.js")
 		.site_wrapper
+
 			.sidebar 
 				.sidebar__picture 
 				.sidebar__name Vittorio Zaccaria
 				.sidebar__address Politecnico di Milano
 
 				ul.sidebar__link_list
-					+sidebar__link_item('fa-home', 'Home', '/')
-					+sidebar__link_item('fa-edit', 'Publications', '/publications.html')
-					+sidebar__link_item('fa-picture-o', 'Portfolio')
-					+sidebar__link_item('fa-bank', 'CV')
-
-
+					+sidebar__link_item('fa-home'      , 'Home'         , '/')
+					+sidebar__link_item('fa-search'    , 'Research'     , '/research.html')
+					+sidebar__link_item('fa-edit'      , 'Publications' , '/publications.html')
+					+sidebar__link_item('fa-picture-o' , 'Portfolio'    , '/portfolio.html')
+					+sidebar__link_item('fa-group'     , 'Teaching'     , '/teaching.html')
+					+sidebar__link_item('fa-envelope'  , 'Contacts'   , '/contacts.html')
+					+sidebar__link_item('fa-bank'      , 'CV')
 
 				.sidebar__bottom 
 					.sidebar__bottom__button
@@ -45,17 +48,19 @@ html
 						i.fa.fa-google-plus-square
 
 			.sidebar__go_button(onclick="window.dynCss.api.toggle('showMenu');", style="cursor: pointer") 
-				i.sidebar__go_button__text.fa.fa-chevron-left
+				i.sidebar__go_button__text.fa.fa-navicon
 
-			block content
-	
+			.site_container
+				append content 
+
+
 
 
 		script(type="text/javascript", src="/js/client.js")
 		script
 			:coffee
 				window.dynCss.api.setBreakpoints([961],'@win-width')
-				window.dynCss.api.initToggle('showMenu', '0px', '240px')
+				window.dynCss.api.initToggle('showMenu', 0, 240)
 
 		script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js')
 		script(src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG')

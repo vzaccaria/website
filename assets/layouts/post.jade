@@ -3,22 +3,21 @@ extends ./base
 block append title 
 	title= post.title
 
-block append content
-	.content
-		.post_container
-			.post_container__post__title #{post.title}
-			.post_container__post__subtitle 
+block content
+	.post_container
+		.post_container__post__title #{post.title}
+		.post_container__post__subtitle 
 
-				.post_container__post__date 
-					i.fa.fa-calendar-o 
-					.post_container__post__date_value #{post.formattedDate}
+			.post_container__post__date 
+				i.fa.fa-calendar-o 
+				.post_container__post__date_value #{post.formattedDate}
 
-				.post_container__post__category 
-					i.fa.fa-flag-o 
-					.post_container__post__category_value #{post.category}
+			.post_container__post__category 
+				i.fa.fa-flag-o 
+				.post_container__post__category_value #{post.category}
 
-				.post_container__post__tags 
-					i.fa.fa-tags
-					each t in post.tags
-						.post_container__post__tag #{t}
-			.post_text!= post.contents
+			.post_container__post__tags 
+				i.fa.fa-tags
+				each t in post.tags
+					.post_container__post__tag #{t}
+		.post_text!= post.contents

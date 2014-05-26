@@ -1,5 +1,5 @@
 ---
-title: Towards template programming with Haskell - a small tutorial
+title: Tutorial on Template Haskell 
 date: 2014-02-24 10:52:21
 
 layout: post

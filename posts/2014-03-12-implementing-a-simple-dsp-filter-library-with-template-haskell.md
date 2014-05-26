@@ -1,5 +1,5 @@
 ---
-title: Implementing a simple DSP filter library with Template Haskell
+title: A simple DSP filter with Template Haskell
 date: 2014-03-12 15:25:50
 
 layout: post

@@ -226,10 +226,10 @@ isNum _ = False
 ```haskell
 fuseDelays:: Exp -> Exp -> Exp -> Exp 
 fuseDelays e1 op e2 = 
-            let d = getDelayValue e1
-                s = getDelayedSignal e1
-                c = getNum e2
-                in (InfixE (Just s) op (Just (LitE (RationalL (d + c)))))
+  let d = getDelayValue e1
+    s = getDelayedSignal e1
+    c = getNum e2
+    in (InfixE (Just s) op (Just (LitE (RationalL (d + c)))))
 ```
 
 
@@ -254,8 +254,8 @@ and modify `simplify` as follows:
 ```haskell
 simplify :: ExpQ -> ExpQ
 simplify eq = do
-    e <- eq 
-    return (simplifyAll e)
+  e <- eq 
+  return (simplifyAll e)
 ```
 
 

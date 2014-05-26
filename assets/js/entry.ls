@@ -24,6 +24,9 @@ console.log welcome
 # window.dynCss.config.debug = true
 # window.dynCss.config.useRAF = true
 
+window.dynCss.lib.responsiveTranslateX = (v1, v2) ->
+    return window.dynCss.lib.selectFrom(["translateX(#{v1}px)", "translateX(#{v2}px)"])
+
 add-fast-click = ->
     FastClick.attach(document.body);
 

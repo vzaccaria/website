@@ -6,6 +6,10 @@ jade    = require('jade')
 path    = require('path')
 _       = require('underscore')
 moment  = require('moment')
+_.str   = require('underscore.string');
+
+_.mixin(_.str.exports());
+_.str.include('Underscore.string', 'string');
 
 parse-path = (rpath) ->
   extname = path.extname(rpath)
@@ -83,6 +87,8 @@ render-blog-post = (templates, url) ->
       post     = _.extend { contents: file.contents }, file.local
       
       post.formatted-date = moment(post.date).format('dddd, MMMM Do YYYY')
+      post.small-date = moment(post.date).format('M/D')
+      post.small-description = _(post.description).prune(60, '... (read more)')
 
       locals   = 
           post: post
