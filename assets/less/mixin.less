@@ -1,0 +1,61 @@
+// Clearfix
+
+.cf:after,
+.cf:before {
+	content: '';
+	display: table;
+}
+.cf:after {
+	clear: both;
+}
+.cf {
+	zoom: 1;
+}
+
+.border-box() {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.smallcaps (@color, @font-weight) {
+    // depends on the font family.
+    // some font-families don't support small caps
+    // or don't provide them with their web font.
+    font-variant: small-caps;
+    font-weight: @font-weight;
+    text-transform: lowercase;
+    color: @color;
+}
+
+.avatar(@picture-resize, @picture-margins, @url) {
+	margin-top      : @picture-margins;
+	margin-bottom   : @picture-margins;
+	margin-left     : auto;
+	margin-right    : auto;
+
+	width           : @picture-resize;
+	height          : @picture-resize;
+	border-radius   : @picture-resize/2;
+
+	background      : url(@url) no-repeat;
+	background-size : @picture-resize;	
+}
+
+.hide-accelerated() {
+	-webkit-transform: rotateX(180deg);
+    transform: rotateZ(180deg);
+}
+
+.enable-hardware-acceleration() {
+	backface-visibility: hidden;
+	perspective: 1000;
+	-webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+    
+    // -webkit-transform: translateZ(@z);
+    // transform: translateZ(@z);
+}

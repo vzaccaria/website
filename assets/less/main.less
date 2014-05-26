@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic);
+// @import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+
+// http  : //flatuicolors.com/
+@blue    : darken(#7f8c8d, 40%);
+@cloud   : #ecf0f1;
+@silver  : #bdc3c7;
+@pumpkin : #d35400;
+@belize  : #2980b9;
+
+@font-family      : 'Lato', 'Helvetica';
+@display-family   : 'Francois One';
+@code-font-family : 'Ubuntu Mono';
+
+body {
+	-dyn-opacity: '@selectFrom([1, 1])';
+	transition: opacity 300ms;
+}
+
+.site-wrapper {
+	width    : 100%;
+	overflow : hidden;
+	position : relative;
+}
+
+// Sidebar
+@sidebar-width-nopix   : 240;
+@sidebar-width: @sidebar-width-nopix * 1px;
+
+@content-inside-width: 90%;
+
+@content-width: '(@win-width - @{sidebar-width-nopix})+"px"';
+@translate-right: '"translateX(@{sidebar-width})"';
+@translate-variable: '"translateX(#{@showMenu})"';
+
+.content {
+	.border-box();
+	.enable-hardware-acceleration();
+
+	position         : relative;
+	-dyn-width       : '@selectFrom(["100%", @{content-width}])';
+	background-color : white;
+	-dyn-transform 	 : '@selectFrom([@{translate-variable}, @{translate-right}])';	
+	transition       : transform 500ms;
+	overflow         : hidden;
+
+	&:extend(.cf);
+}
+
+@import 'reset.less';
+@import 'mixin.less';
+@import 'sidebar.less';
+@import 'posts.less';
+@import 'post.less';
+
+
+
+// .post_list {
+// 	position       : static;
+// 	width          : @post-list-width;
+// 	display        : inline-block;
+// 	overflow       : scroll;
+// 	vertical-align : top;
+// 	-dyn-height    : '@win-height';
+	
+// 	&:extend(.cf);
+
+// }
+

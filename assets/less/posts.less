@@ -1,0 +1,117 @@
+
+
+@title-subtitle-text-spacing: 10px;
+
+.reduce-margins() {
+	width: @content-inside-width;
+	// max-width: 50em;
+	margin-left: (100% - @content-inside-width)/2;
+}
+
+.posts_container {
+	.border-box();
+	display: inline-block;
+	margin-top: 3%;
+}
+
+.posts_container__post {
+	display: block;
+	margin-bottom: 3em;
+	color: inherit;
+	text-decoration: none;
+	&:hover {
+		background-color: lighten(@cloud, 5%);
+	}
+
+}
+
+.posts_container__post__title {
+	-dyn-font-family : '@selectFrom(["Francois One","Lato"])';;
+	-dyn-font-weight : '@selectFrom(["500","500"])';
+	-dyn-font-size   : '@selectFrom(["1.2em","2em"])';
+	border-bottom    : 1px fade(darken(@cloud, 50%), 20%) solid;
+	padding-bottom   : .2em;
+	.reduce-margins();
+}
+
+.posts_container__post__subtitle {
+	font-family: 'Lato';
+	font-weight: 300;
+	-dyn-font-size   : '@selectFrom(["1em","1.1em"])';
+	line-height: 1.5em;
+	margin-top: @title-subtitle-text-spacing;
+	.reduce-margins();
+}
+
+@margin: .5em;
+
+.posts_container__post__date {
+	display: inline-block;
+	border-right   : 2px solid fade(@blue, 10%);
+	padding-right  : @margin;
+}
+
+.posts_container__post__category {
+	-dyn-display   : '@selectFrom(["none","inline-block"])';	
+	padding-left: @margin;
+	border-right   : 2px solid fade(@blue, 10%);
+	padding-right  : @margin;
+}
+
+.posts_container__post__tags {
+	-dyn-display   : '@selectFrom(["none","inline-block"])';
+	padding-left: @margin;
+	// border-right   : 2px solid fade(@blue, 10%);
+	// padding-right  : @margin;
+}
+
+@tv: 0em;
+@th: .4em;
+
+.posts_container__post__tag {
+
+	display          : inline-block;
+	margin-left      : @margin;
+	background-color : @pumpkin;
+	font-size        : .8em;
+	padding-top      : @tv;
+	padding-bottom   : @tv + .1em;
+	padding-left     : @th;
+	padding-right    : @th;
+	border-radius    : 4px;
+	.smallcaps(white, 500);
+
+}
+
+.posts_container__post__date_value {
+	margin-left: @margin;
+	display: inline-block;
+}
+
+.posts_container__post__category_value {
+	margin-left: @margin;
+	display: inline-block;
+}
+
+.posts_container__post__description {
+	font-family: 'Lato';
+	-dyn-font-size   : '@selectFrom(["1em","1.1em"])';
+	font-weight: 300;
+	line-height: 1.5em;
+	margin-top: @title-subtitle-text-spacing;
+	.reduce-margins();
+}
+
+.posts_container__post__description__text {
+	display: inline-block;
+	width: 89%;
+	vertical-align: top;
+	margin-left: 1%;
+}
+
+.posts_container__post__description__image {
+	height: auto;
+	width: 10%;
+	display: inline-block;
+}
+
