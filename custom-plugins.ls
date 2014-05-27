@@ -88,7 +88,7 @@ render-blog-post = (templates, url) ->
       
       post.formatted-date = moment(post.date).format('dddd, MMMM Do YYYY')
       post.small-date = moment(post.date).format('M/D')
-      post.small-description = _(post.description).prune(60, '... (read more)')
+      post.small-description = _(post.description).prune(70, '..')
 
       locals   = 
           post: post
