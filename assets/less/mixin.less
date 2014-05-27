@@ -59,3 +59,20 @@
     // -webkit-transform: translateZ(@z);
     // transform: translateZ(@z);
 }
+
+
+.show-desktop-inline-block() {
+	-dyn-display: '@selectFrom(["none","inline-block"])';
+}
+
+.show-desktop-block() {
+	-dyn-display: '@selectFrom(["none","block"])';
+}
+
+.show-mobile-inline-block() {
+	-dyn-display: '@selectFrom(["inline-block","none"])';
+}
+
+.show-mobile-block() {
+	-dyn-display: '@selectFrom(["block","none"])';
+}

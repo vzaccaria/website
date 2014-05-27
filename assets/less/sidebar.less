@@ -31,10 +31,19 @@
 @picture-margins: 1.3em;
 
 .sidebar__picture {
+	.show-desktop-block();
 	.avatar(@picture-resize, @picture-margins, '../img/sidebar_picture.jpg');
 	.border-box();
 	&:extend(.cf);
 }
+
+.sidebar__picture__small {
+	.show-desktop-inline-block();
+	.avatar(@picture-resize/2, @picture-margins/2, '../img/sidebar_picture.jpg');
+	.border-box();
+	&:extend(.cf);
+}
+
 
 @link_list_margins: @picture-margins;
 
@@ -42,7 +51,7 @@
 	.border-box();
 	// margin-left: @link_list_margins;
 	// margin-right: @link_list_margins;
-	margin-top: 3em;
+	-dyn-margin-top: '@selectFrom(["1em", "3em"])';
 	list-style-type: none;
 	padding-left: 0;
 
@@ -53,8 +62,9 @@
 @effect: 3%;
 
 .sidebar__link_item {
+	-dyn-display: '@selectFrom(["inline-block", "block"])';
 	padding-left: 5%;
-	width            : 95%;
+	-dyn-width: '@selectFrom(["20%", "95%"])';
 	color            : @cloud;
 	background-color : @blue;
 	padding-bottom   : @link_item_padding;
@@ -85,8 +95,8 @@
 }
 
 .sidebar__link_item__name {
+	.show-desktop-inline-block();
 	font-family    : @font-family;
-	display        : inline-block;
 	margin-left    : 5%;
 	font-size      : 1em;
 	vertical-align : middle;
@@ -112,28 +122,28 @@
 	}
 }
 
+@sidebar__go_button_size: 1.5em;
+
 .sidebar__go_button {
 	// -dyn-display: '@selectFrom(["block","none"])';
 	position: fixed;
 	.enable-hardware-acceleration();
 	-dyn-fixed-top-edge   : '0';
 	-dyn-fixed-right-edge : '@win-width';
-	width                 : 3em;
-	height                : 3em;
-	font-size             : 1em;
+	width                 : @sidebar__go_button_size;
+	height                : @sidebar__go_button_size;
+	line-height           : @sidebar__go_button_size;
+	font-size             : @sidebar__go_button_size;
 	background-color      : fade(black, 20%);
 	z-index               : 2;
 	text-align            : center;
-	border-radius         : 5px;
+	border-radius         : 0 0 0 5px;
 	.border-box();
 }
 
 .sidebar__go_button__text {
-	display: inline-block;
-	vertical-align        : bottom;
-	font-size: 2em;
-	color: fade(white, 70%);
-	padding-top: .25em;
+	display        : inline;
+	color          : fade(white, 70%);
 	// .border-box();
 }
 
