@@ -1,3 +1,6 @@
+
+sort-by-date = -> -1*(it.date.get-time!)
+
 _module = ->
 
           
@@ -56,8 +59,14 @@ _module = ->
         ...
 
       post_containers: 
-        { name: './assets/index.jade', max-posts: 10, sort-by: -> -1*(it.date.get-time!) }
+        { name: './assets/index.jade', max-posts: 5, sort-by: sort-by-date, category: 'blog' }
+        { name: './assets/blog.jade', sort-by: sort-by-date, category: 'blog'}
         ...
+
+      # relative to the cwd without './'!
+      containers: { 
+        'assets/publications.jade': { source: './data/biblio.json' } 
+      }
 
       layout: {
         post: './assets/layouts/post.jade'

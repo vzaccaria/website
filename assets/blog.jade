@@ -1,0 +1,36 @@
+extends ./layouts/base 
+
+block append title 
+	title Vittorio Zaccaria — Blog posts
+
+block content
+	.posts_container
+		each p in filteredPosts 
+			a.posts_container__post(href='#{p.link}', style="cursor: pointer")
+				.posts_container__post__title #{p.title}
+				.posts_container__post__subtitle 
+
+					.posts_container__post__date 
+						i.fa.fa-calendar-o 
+						.posts_container__post__date_value #{p.formattedDate}
+
+
+					.posts_container__post__category 
+						i.fa.fa-flag-o 
+						.posts_container__post__category_value #{p.category}
+
+					.posts_container__post__tags 
+						i.fa.fa-tags
+						each t in p.tags
+							.posts_container__post__tag #{t}
+
+				.posts_container__post__description 
+					.posts_container__post__description__text #{p.description}
+
+				.posts_container__post__description-mobile
+					.posts_container__post__description-mobile__title #{p.title}
+					.posts_container__post__description-mobile__small_date #{p.smallDate}
+					.posts_container__post__description-mobile__small_description #{p.smallDescription}
+
+
+				//- .posts_container__post(onclick="location.href='#{p.link}'", style="cursor: pointer")

@@ -76,3 +76,20 @@
 .show-mobile-block() {
 	-dyn-display: '@selectFrom(["block","none"])';
 }
+
+@tv: 0em;
+@th: .4em;
+
+.tag(@color) {
+	display          : inline-block;
+	margin-left      : @margin;
+	background-color : @color;
+	font-size        : .9em;
+	padding-top      : @tv;
+	padding-bottom   : @tv + .25em;
+	padding-left     : @th;
+	padding-right    : @th;
+	border-radius    : 4px;
+	line-height: 1.1em;
+	.smallcaps(white, 500);
+}

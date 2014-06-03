@@ -48,22 +48,8 @@
 	// padding-right  : @margin;
 }
 
-@tv: 0em;
-@th: .4em;
-
 .post_container__post__tag {
-
-	display          : inline-block;
-	margin-left      : @margin;
-	background-color : @pumpkin;
-	font-size        : .8em;
-	padding-top      : @tv;
-	padding-bottom   : @tv + .1em;
-	padding-left     : @th;
-	padding-right    : @th;
-	border-radius    : 4px;
-	.smallcaps(white, 500);
-
+	.tag(@pumpkin);
 }
 
 .post_container__post__date_value {

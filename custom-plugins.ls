@@ -54,13 +54,18 @@ render-index = (data, pc-info) ->
           pc := e 
       try 
         posts-filtered = data.posts
-        console.log pc
+        # console.log pc
 
         if pc.sort-by? and _.is-function(pc.sort-by) 
           posts-filtered := _.sort-by(posts-filtered, pc.sort-by)
 
+        if pc.category? 
+          posts-filtered := _.filter(posts-filtered, -> (it.category == pc.category))
+
         if pc.max-posts? and _.is-number(pc.max-posts)
           posts-filtered := _.head(posts-filtered, pc.max-posts)
+
+
 
         console.log posts-filtered.length
 
@@ -69,6 +74,71 @@ render-index = (data, pc-info) ->
       catch 
         console.log "gulp-render-index: #e"
       cb(false, file)
+
+render-container = (containers) ->
+    return map (file, cb) ->
+      try 
+        workdir       = file.cwd
+        sourcefile    = file.path
+        relpath       = path.relative(workdir, sourcefile)
+        data          = require(containers[relpath].source)
+
+        for p in data 
+          p.keywords ?= []
+          p.type = 
+            | 'bookc' in p.keyword      => 'bookchapter'
+            | 'journal' in p.keyword    => 'journal'
+            | 'book'    in p.keyword    => 'book'
+            | 'conference' in p.keyword => 'conference'
+            | 'techreport' in p.keyword => 'techreport'
+            | 'workshop' in p.keyword   => 'workshop'
+            | 'patent' in p.keyword     => 'patent'
+            | 'techreport' in p.keyword => 'techreport'
+            | 'talk' in p.keyword       => 'talk'
+            | 'forum' in p.keyword       => 'talk'
+            | 'thesis' in p.keyword     => 'thesis'
+            | _                         => 'not categorized'
+
+          if p.type == 'journal'
+            p.booktitle = p.journal.name
+
+          if p.type == 'thesis'
+            p.booktitle = p.school 
+
+          if p.type == 'techreport'
+            p.booktitle = p.institution
+
+          if p.type == 'patent'
+            p.booktitle = "#{p.address} #{p.number}"
+
+          if p.type == 'talk'
+            p.booktitle = "#{p.address}"
+
+          if not p.pages?
+            p.pages = '—'
+
+          if not p['bdsk-url-1']?
+            p.link = url: 'vittorio.zaccaria@polimi.it'
+          else 
+            p.link = url: p['bdsk-url-1']
+
+          if p.booktitle?
+            s  = p.booktitle
+            n  = s.index-of(':')
+            if n != -1
+              s  = s.substring(0, n)
+              p.smartbooktitle = s
+            else 
+              p.smartbooktitle = s
+
+
+
+        locals        = { filename: file.path, data: data }
+        file.contents = new Buffer(jade.compile(file.contents, locals)(locals));
+      catch 
+        console.log "gulp-render-container: #e"
+      cb(false, file)
+
 
 render-blog-post = (templates, url) -> 
 
@@ -107,6 +177,7 @@ render-blog-post = (templates, url) ->
 
 
 module.exports = 
-  render-blog-post: render-blog-post
-  render-index: render-index
-  capture-info: capture-info 
+  render-blog-post : render-blog-post
+  render-index     : render-index
+  capture-info     : capture-info
+  render-container : render-container

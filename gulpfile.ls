@@ -3,13 +3,16 @@
 
 { vendor-js, vendor-css, , data-to-be-copied } = require('./config')
 { remote, destination, font-dir, img-dir }     = require('./config')
-{ posts, post_containers, layout }             = require('./config')
-{ site-base-url } = require('./config')
+{ posts, post_containers, containers, layout } = require('./config')
+{ site-base-url }                              = require('./config')
  
 client-js = [ "#destination/js/build/#s" for s in client-brfy-roots ]
 pc = [ v.name for k,v of post_containers ]
+cc = [ k for k,v of containers ]
+cd = [ v.source for k,v of containers ]
 
-files-to-watch = client-ls ++ client-less ++ client-html ++ directives ++ other-deps ++ posts ++ pc
+
+files-to-watch = client-ls ++ client-less ++ client-html ++ directives ++ other-deps ++ posts ++ pc ++ cc ++ cd
 
 for k,v of layout 
     files-to-watch.push(v)
@@ -72,14 +75,11 @@ notifyLR = (event) ->
 notifyLivereload = (event) ->
     set-timeout (-> notifyLR(event)), LIVERELOAD_LATENCY             
 
-gulp.task 'build-html', ->
+gulp.task 'build-html', [\build-post_containers \build-containers ], ->
     gulp.src client-html
         .pipe plumber()
         .pipe jade()
         .pipe gulp.dest "#destination/html"
-
-gulp.task 'build-index', ['build-html'] ->
-
 
 gulp.task 'build-client-js', ['build-client-ls'], ->
     gulp.src client-js, { read: false }
@@ -194,7 +194,7 @@ gulp.task 'copy-data', ->
         .pipe changed("#destination/data")
         .pipe gulp.dest "#destination/data"
 
-{ render-blog-post, capture-info, render-index } = require('./custom-plugins')
+{ render-blog-post, capture-info, render-index, render-container } = require('./custom-plugins')
 
 rename-iterator = (file) -> 
     console.log file
@@ -217,6 +217,14 @@ gulp.task 'build-posts', ->
         .pipe capture-info(current_posts)
         .pipe gulp.dest "#destination"
 
+gulp.task 'build-containers', ->
+    cc = [ k for k,v of containers ]
+    gulp.src cc 
+        .pipe plumber() 
+        .pipe render-container(containers)
+        .pipe rename(extname: '.html')
+        .pipe gulp.dest "#destination"
+
 gulp.task 'build-post_containers', ['build-posts'], ->
     
     gulp.src pc
@@ -227,7 +235,6 @@ gulp.task 'build-post_containers', ['build-posts'], ->
   
 gulp.task 'default', [
     \build-html
-    \build-post_containers
     \build-client-js
     \build-vendor-js
     \build-vendor-css
