@@ -5,8 +5,8 @@ date: 2014-03-12 15:25:50
 layout: post
 category : blog 
 tags : ["haskell", "functional", "programming", "parallel", "fir", "filters"] 
-description : In this post, I'll show how you can write a reusable finite impulse response filter in Template Haskell. Since Template Haskell allows to generate code at compile time, this means that you will get constant propagation and other optimizations for free on the structure of your FIR filter.
-og_image: deposit/lambda.png
+description : Let's see how you can write a reusable finite impulse response filter in Template Haskell. Since it allows to manipulate the syntax tree at compile time, you will get constant propagation and other optimizations for free on the structure of your FIR filter.
+og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---
 
 *Note: This is part 2 of small tutorial on Template Haskell I wrote on my blog; the tutorial is composed of [part1](http://www.vittoriozaccaria.net/blog/2014/02/24/towards-template-programming-with-haskell.html), [part 2](http://www.vittoriozaccaria.net/blog/2014/03/12/implementing-a-simple-dsp-filter-library-with-template-haskell.html) and [part 3](http://www.vittoriozaccaria.net/blog/2014/03/21/symbolically-optimize-dsp-filters-with-template-haskell.html)*.

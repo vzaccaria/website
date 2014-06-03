@@ -40,6 +40,7 @@
 	font-size: 2em;
 	border-bottom: @border;
 	padding-bottom: .2em;
+	.smallcaps(black, 300);
 	.reduce-margins();
 }
 
@@ -103,15 +104,21 @@
 
 
 .posts_container__post__description__text {
-	width: 89%;
+	width: 59%;
 	vertical-align: top;
-	// margin-left: 1%;
+	margin-left: 1%;
+	display: inline-block;
 }
 
 .posts_container__post__description__image {
-	height: auto;
-	width: 10%;
+	.border-box();
 	display: inline-block;
+	height: auto;
+	width: 15%;
+	display: inline-block;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+	background-color: white;
 }
 
 // 	                    __    _ __            __                    _       __  _           

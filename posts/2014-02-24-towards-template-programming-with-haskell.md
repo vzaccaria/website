@@ -6,15 +6,8 @@ layout: post
 category : blog 
 tags : ["haskell", "functional", "programming", "parallel"] 
 description : Template Haskell promises to be the next "big thing" for parallel code generation. In this short blog post, I'll guide you through some very simple examples showing the power of Template Haskell.
-og_image: deposit/lambda.png
+og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---
-
-
-<a href=""> 
-    <img class="center" src="http://www.vittoriozaccaria.net/deposit/lambda.png"></img>
-</a>
-
-
 
 *Note: This is part 1 of small tutorial on Template Haskell I wrote on my blog; the tutorial is composed of [part1](http://www.vittoriozaccaria.net/blog/2014/02/24/towards-template-programming-with-haskell.html), [part 2](http://www.vittoriozaccaria.net/blog/2014/03/12/implementing-a-simple-dsp-filter-library-with-template-haskell.html) and [part 3](http://www.vittoriozaccaria.net/blog/2014/03/21/symbolically-optimize-dsp-filters-with-template-haskell.html)*.
 

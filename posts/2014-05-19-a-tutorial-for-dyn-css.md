@@ -5,6 +5,7 @@ date: 2014-05-19 21:51:45
 layout: post
 category : blog 
 tags : ["CSS", "Dynamic"] 
+og_image: http://www.vittoriozaccaria.net/deposit/img-dyncss.jpg
 
 ---
 

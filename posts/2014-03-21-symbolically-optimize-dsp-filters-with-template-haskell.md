@@ -5,8 +5,8 @@ date: 2014-03-21 14:20:54
 layout: post
 category : blog 
 tags : ["haskell", "functional", "programming", "parallel", "fir", "filters"]
-description : In this final post, I'll show how you can use Template Haskell to do general and domain specific optimizations of your code.
-og_image: deposit/lambda.png
+description : Template Haskell is a powerful tool to do general and domain specific optimizations of your code. Even if it is written in another programming language! 
+og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---
 
 
