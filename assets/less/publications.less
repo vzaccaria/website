@@ -3,41 +3,39 @@
 @line-height: 1.2em;
 @margin-right: .5em;
 
-.publications__page {
-	background-color: darken(white, 5%);
+.publications {
+	background-color: white;
+	// background-color: darken(white, 5%);
 	font-family: @font-family;
+	.center-within-container();
 }
 
 .publications__header {
 	.border-box();
 	display: block;
-	width: @content-inside-width;
-	max-width: 50em;
-	margin-left: (100% - @content-inside-width)/2;
+
 	padding-top: 1em;
 	font-family: @display-family;
-	font-weight: 300;
+	.smallcapfont(@display-family);
 	border-bottom: 1px fade(darken(@cloud, 50%), 20%) solid;
 	padding-bottom: .2em;
 	font-size: 2em;
 }
 
-
-.publications_container {
+.publications__container {
 	.border-box();
 	display: block;
-	width: @content-inside-width;
-	max-width: 50em;
-	margin-left: (100% - @content-inside-width)/2;
 	padding-top: 3em;
 }
 
 .publication {
-	background-color: white;
+	background-color: #fbfbfb;
+	box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+	border: 1px solid #d8d8d8;
 	margin-bottom: 3em;
 	padding: 1em;
 	line-height: @line-height;
-	border-bottom: 1px fade(black, 20%) solid;
+	// border-bottom: 1px fade(black, 20%) solid;
 }
 
 .publication__title {

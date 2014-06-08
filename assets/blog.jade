@@ -4,29 +4,29 @@ block append title
 	title Vittorio Zaccaria — Blog posts
 
 block content
-	.posts_container
+	div(block='posts')
 		each p in filteredPosts 
-			a.posts_container__post(href='#{p.link}', style="cursor: pointer")
-				.posts_container__post__title #{p.title}
-				.posts_container__post__subtitle 
+			a(block='post-preview', href='#{p.link}', style="cursor: pointer")
+				div(elem='title') #{p.title}
+				div(elem='subtitle') 
 
-					.posts_container__post__date 
+					div(elem='date') 
 						i.fa.fa-calendar-o 
-						.posts_container__post__date_value #{p.formattedDate}
+						div(elem='date-value') #{p.formattedDate}
 
 
-					.posts_container__post__category 
+					div(elem='category') 
 						i.fa.fa-flag-o 
-						.posts_container__post__category_value #{p.category}
+						div(elem='category-value') #{p.category}
 
-					.posts_container__post__tags 
+					div(block='tags') 
 						i.fa.fa-tags
 						each t in p.tags
-							.posts_container__post__tag #{t}
+							div(elem='tag') #{t}
 
-				.posts_container__post__description 
-					img.posts_container__post__description__image(src="#{p.og_image}")
-					.posts_container__post__description__text #{p.description}
+				div(elem='description')
+					img(elem='image', src="#{p.og_image}")
+					div(elem='description-text') #{p.description}
 
 				.posts_container__post__description-mobile
 					.posts_container__post__description-mobile__title #{p.title}

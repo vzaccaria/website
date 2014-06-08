@@ -4,7 +4,7 @@ date: 2014-02-24 10:52:21
 
 layout: post
 category : blog 
-tags : ["haskell", "functional", "programming", "parallel"] 
+tags : ["haskell", "digital signal processing"] 
 description : Template Haskell promises to be the next "big thing" for parallel code generation. In this short blog post, I'll guide you through some very simple examples showing the power of Template Haskell.
 og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---

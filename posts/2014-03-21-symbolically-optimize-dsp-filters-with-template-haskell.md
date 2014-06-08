@@ -4,7 +4,7 @@ date: 2014-03-21 14:20:54
 
 layout: post
 category : blog 
-tags : ["haskell", "functional", "programming", "parallel", "fir", "filters"]
+tags : ["haskell", "digital signal processing"]
 description : Template Haskell is a powerful tool to do general and domain specific optimizations of your code. Even if it is written in another programming language! 
 og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---
@@ -15,7 +15,7 @@ og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 
 In the previous part of this tutorial, we introduced an FIR filter generator  in Template Haskell. The filter generator produces a syntactic representation of FIR Filters in the Haskell Language. An example application is the following:
 
-```haskell
+```haskell 
 myfilter = [| \x -> $(Filt.flt0 [0, 1] [| x |]) |]
 ```
 

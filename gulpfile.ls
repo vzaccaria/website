@@ -46,6 +46,7 @@ plumber    = require('gulp-plumber');
 cr         = require '/Users/zaccaria/.ssh/sftp_credentials'
 fm         = require 'gulp-front-matter'
 marked     = require 'gulp-markdown'
+beml       = require('gulp-beml')
 
 
 
@@ -79,7 +80,8 @@ gulp.task 'build-html', [\build-post_containers \build-containers ], ->
     gulp.src client-html
         .pipe plumber()
         .pipe jade()
-        .pipe gulp.dest "#destination/html"
+        .pipe beml()
+        .pipe gulp.dest "#destination"
 
 gulp.task 'build-client-js', ['build-client-ls'], ->
     gulp.src client-js, { read: false }
@@ -223,6 +225,7 @@ gulp.task 'build-containers', ->
         .pipe plumber() 
         .pipe render-container(containers)
         .pipe rename(extname: '.html')
+        .pipe beml()
         .pipe gulp.dest "#destination"
 
 gulp.task 'build-post_containers', ['build-posts'], ->
@@ -231,6 +234,7 @@ gulp.task 'build-post_containers', ['build-posts'], ->
         .pipe plumber()
         .pipe render-index(current_posts, post_containers)
         .pipe rename(extname: '.html')
+        .pipe beml()
         .pipe gulp.dest "#destination"
   
 gulp.task 'default', [

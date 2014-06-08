@@ -27,6 +27,7 @@ _module = ->
 
       client-html:
           "./assets/views/*.jade"
+          "./assets/research.jade"
           ...
 
       client-less:
@@ -72,7 +73,12 @@ _module = ->
         post: './assets/layouts/post.jade'
       }
 
-      other-deps: ['./assets/layouts/base.jade', './assets/less/*.less', './assets/css/*.css', './assets/vendor/*.js']
+      other-deps: [ 
+                    './assets/layouts/base.jade', 
+                    './assets/less/*.less', 
+                    './assets/css/*.css', 
+                    './assets/vendor/*.js'
+                    ]
 
     }
   

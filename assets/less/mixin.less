@@ -18,6 +18,13 @@
 	        box-sizing: border-box;
 }
 
+.smallcapfont(@font-family, @font-weight:300) {
+	font-variant: small-caps;
+    font-weight: @font-weight;
+    text-transform: lowercase;
+    font-family: @font-family;
+}
+
 .smallcaps (@color, @font-weight) {
     // depends on the font family.
     // some font-families don't support small caps
@@ -58,6 +65,15 @@
     
     // -webkit-transform: translateZ(@z);
     // transform: translateZ(@z);
+}
+
+.center-within-container() {
+	// width       : @content-inside-width;
+	// margin-left : (100% - @content-inside-width)/2;
+	// maring-right: (100% - @content-inside-width)/2;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 

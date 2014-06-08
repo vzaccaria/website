@@ -4,9 +4,9 @@ date: 2014-01-14 10:52:10
 
 layout: post
 category : blog 
-tags : ["research", "statement", "design", "space", "exploration", "modeling"] 
+tags : ["research statement", "modeling", "exploration", "eda"] 
 description : Yesterday, I gave a talk about my past and current research interests in computer modeling and architecture, focusing on the lessons I've learned along the way. Check it out!
-og_image: deposit/talk_13gennaio_preview.jpg
+og_image: http://www.vittoriozaccaria.net/deposit/talk_13gennaio_preview.jpg
 ---
 
 
