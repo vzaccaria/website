@@ -69,7 +69,7 @@ render-index = (data, pc-info) ->
 
         console.log posts-filtered.length
 
-        locals = { filename: file.path, posts: data.posts, filtered-posts: posts-filtered }
+        locals = { filename: file.path, posts: data.posts, filtered-posts: posts-filtered, pretty: true }
         file.contents = new Buffer(jade.compile(file.contents, locals)(locals));
       catch 
         console.log "gulp-render-index: #e"
@@ -133,7 +133,7 @@ render-container = (containers) ->
 
 
 
-        locals        = { filename: file.path, data: data }
+        locals        = { filename: file.path, data: data,  pretty: true }
         file.contents = new Buffer(jade.compile(file.contents, locals)(locals));
       catch 
         console.log "gulp-render-container: #e"
@@ -163,6 +163,7 @@ render-blog-post = (templates, url) ->
       locals   = 
           post: post
           filename: template.name 
+          pretty: true 
 
       curpath       = parse-path(file.relative)
       curpath       = rename-path(curpath, locals)

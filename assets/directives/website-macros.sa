@@ -1,0 +1,173 @@
+
+sweetInit;
+
+directive calendar {
+
+	import   $http;
+	byref    ; 
+	byval    startMonth, numberOfMonths, format, url;
+	callback; 
+
+	template `
+.calendar 
+	.calendar__month(ng-repeat="month in months")
+		.calendar__month_name {{month.name}}
+		.calendar__day(ng-repeat="day in month.days", ng-class="day.type", ng-click="gotoDay(day)",  ng-mouseenter='showTooltip(day)', ng-mouseleave='hideTooltip(day)', style="{{day.style}}") {{day.number}}
+			.calendar__tooltip(ng-show='day.tooltipVisible') 
+				.calendar__tooltip__title {{day.title}}
+`;
+
+	create(elem, el) {
+
+		@elem            = elem;
+
+		@isInMonth = λ(cd,cm) => {
+			cm.month() == day.month();
+		}
+
+		
+		@isSunday = λ(cd) => {
+			if(cd.day() == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		@showTooltip = λ(day) => { 
+			if(day.link != undefined) {
+				day.tooltipVisible = true;
+			}
+		};
+
+		@hideTooltip = λ(day) => { 
+			day.tooltipVisible = false;
+		};
+
+		@loadData = λ() => { 
+			@$http({method: 'GET', url: @url }).success( λ(d) => { 
+				@data = d;
+				@updateCalendar();
+			})
+		};
+
+		@gotoDay = λ(d) => { 
+			if(d.link != undefined) {
+				window.location.href = d.link;
+			}
+		};
+
+		@getUniformDate = λ(d) => { 
+			return d.format('DD-MM-YYYY');
+		};
+
+		@getAdditionalInfo = λ(cd) => { 
+			if(@data != undefined) {
+				for (var i = @data.length - 1; i >= 0; i--) {
+					var d1 = moment(@data[i].date);
+					var d2 = cd;
+					// console.log(@getUniformDate(d1), @getUniformDate(d2));
+					// console.log(moment(@data[i].date).format('DD-MM-YYYY'));
+					ud1 = @getUniformDate(d1);
+					ud2 = @getUniformDate(d2);
+					// console.log(ud1, ud2);
+					if(ud1 == ud2) {
+					// 	console.log(@data[i].tags);
+						if((typeof @filter === 'undefined') || @filter(@data[i])) {
+							return { title: @data[i].title, category: "calendar__category_"+@data[i].category, tags: @data[i].tags, link: @data[i].link };
+						}
+					}
+				};
+			}
+
+			return undefined;
+		};
+
+		@updateCalendar = λ => {
+			if(@format == undefined) {
+				@format = "MMMM YYYY"
+			}
+			@months = [];
+
+			/* Current month */
+			var cm = moment(@startMonth,@format).startOf('month');
+
+			for (var i = 1; i<= parseInt(@numberOfMonths); i++) {
+
+				var maxdays = cm.daysInMonth();
+
+				/* Current day */
+				cd = moment(cm);
+
+				var days = [];
+
+				if(!@isSunday(cd)) {
+					for(var k=0; k<cd.day();k++) {
+						days.push({type: 'calendar__day_not_in_month', number: 'NA', date: moment(cd) });
+					}
+				}
+
+				var name = cd.format("MMMM");
+
+				for(var j=1;j<=maxdays; j++) {
+
+					var info = @getAdditionalInfo(cd);
+					var dd = { number: cd.date(), date: moment(cd), tooltipVisible: false };
+
+					if(info != undefined) {
+						dd.link  = info.link;
+						dd.title = info.title;
+						dd.style = 'cursor: pointer';
+						dd.type  = [info.category];
+						tgs = info.tags.map( function(i) {
+							return "calendar__tag_"+i;
+						});
+						dd.type = dd.type.concat(tgs);
+					}
+
+					var today = @getUniformDate(moment());
+					var this_day = @getUniformDate(cd);
+
+					if(today == this_day) {
+						dd.type = ['calendar__day_is_today'].concat(dd.type);
+					}
+
+					if(cd.day() == 0 || cd.day() == 6) {
+						dd.type = ['calendar__day_not_working'].concat(dd.type);
+					}
+					else {
+						dd.type = ['calendar__day_working'].concat(dd.type);
+					}
+					days.push(dd);
+					cd.add(1, 'day');
+				};
+
+				@months.push({name: name, days: days});
+				cm.add(1, 'month');
+			};
+		};
+
+		var group = ['startMonth', 'numberOfMonths', 'data', 'filter'];
+
+		@$watchCollection(group, @updateCalendar);
+
+		// @$watch('startMonth', @updateCalendar);
+		// @$watch('numberOfMonths', @updateCalendar);
+		// @$watch('data', @updateCalendar);
+		// @$watch('filter', @updateCalendar);
+
+		setTimeout(@loadData, 0);
+
+
+		
+
+	}
+}
+
+window.$$$ = function (sel) {
+    return angular.element(sel).isolateScope();
+} 
+
+commitDirective calendar; 
+

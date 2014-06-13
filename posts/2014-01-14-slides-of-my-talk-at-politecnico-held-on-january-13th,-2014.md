@@ -1,5 +1,5 @@
 ---
-title: Slides of my talk at Politecnico held on January 13th, 2014
+title: Slides of my talk at Politecnico
 date: 2014-01-14 10:52:10
 
 layout: post

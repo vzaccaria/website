@@ -31,3 +31,5 @@ add-fast-click = ->
     FastClick.attach(document.body);
 
 window.addEventListener 'load', add-fast-click, false
+
+application = angular.module('application', [])

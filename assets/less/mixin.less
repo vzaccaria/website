@@ -18,6 +18,15 @@
 	        box-sizing: border-box;
 }
 
+.nice-section-title() {
+	padding-top: 1em;
+	font-family: @display-family;
+	.smallcapfont(@display-family);
+	border-bottom: 1px fade(darken(@cloud, 50%), 20%) solid;
+	padding-bottom: .2em;
+	font-size: 2em;
+}
+
 .smallcapfont(@font-family, @font-weight:300) {
 	font-variant: small-caps;
     font-weight: @font-weight;

@@ -16,6 +16,8 @@ _module = ->
           "./assets/vendor/jquery.min.js"
           "./assets/vendor/dyncss.js"
           "./bower_components/fastclick/lib/fastclick.js"
+          "./bower_components/angular/angular.min.js"
+          "./bower_components/moment/moment.js"
           ...
 
       # client files 
@@ -27,7 +29,6 @@ _module = ->
 
       client-html:
           "./assets/views/*.jade"
-          "./assets/research.jade"
           ...
 
       client-less:
@@ -35,7 +36,7 @@ _module = ->
           ...
 
       directives:[
-          './assets/directives/*.sjs'
+          './assets/directives/*.sa'
           ]
 
       # vendor files 
@@ -62,11 +63,12 @@ _module = ->
       post_containers: 
         { name: './assets/index.jade', max-posts: 5, sort-by: sort-by-date, category: 'blog' }
         { name: './assets/blog.jade', sort-by: sort-by-date, category: 'blog'}
+        { name: './assets/teaching.jade', sort-by: sort-by-date, category: 'infob'}
         ...
 
       # relative to the cwd without './'!
       containers: { 
-        'assets/publications.jade': { source: './data/biblio.json' } 
+        'assets/research.jade': { source: './data/biblio.json' } 
       }
 
       layout: {

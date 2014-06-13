@@ -10,7 +10,8 @@
 
 .bio__title,
 .career__title,
-.education__title {
+.education__title,
+.address__title {
 
 	padding-top: 1em;
 	font-family: @display-family;
@@ -57,9 +58,13 @@
 }
 
 .bio-text__description {
-	font-size: 1em;
-	font-weight: 300;
+	font-size: .95em;
+	// font-weight: 300;
 	line-height: 1.3em;
+	color: lighten(black, 20%);
+	& strong {
+		color: black;
+	}
 }
 
 .career,
@@ -106,7 +111,7 @@
 .diploma__column2 {
 	.border-box();
 	display: inline-block;
-	width:80%;
+	width:78%;
 	padding: 2%;
 	vertical-align: middle;
 }
@@ -154,6 +159,18 @@
  {
 	color: lighten(black, 10%);
 }
+
+@w: 40em;
+
+.address__map {
+	width: 100%;
+	height: 15em;
+}
+
+.address {
+	margin-bottom: 8em;
+}
+
 
 
 

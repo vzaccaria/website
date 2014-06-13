@@ -1,0 +1,31 @@
+
+extends ./layouts/base 
+
+block append title 
+	title Vittorio Zaccaria — Teaching 
+
+block content
+	div(block='teaching-page')
+		div(elem='title') Informatica B 
+		div(elem='year') Anno accademico 2013 — 2014 
+		div(block='contacts')
+			div(elem='detail')
+				div(elem='key') Docente
+				div(elem='value') Vittorio Zaccaria
+			div(elem='detail')
+				div(elem='key') Ricevimento 
+				div(elem='value') Martedì dalle 14:30 alle 16:30 
+			div(elem='detail')
+				div(elem='key') Ufficio
+				div(elem='value') Piazza Leonardo da Vinci 32 - 20133 Milano
+		div(block='lecture-material')
+			div(elem='title') Calendario e materiale
+			div(elem='description') Cliccare sui giorni evidenziati in arancione per accedere al materiale corrispondente.
+			#my-calendar(elem='calendar', calendar, start-month='September 2013', number-of-months='6', url='/data/index.json')
+
+
+		script
+			:coffee 
+				angular.element(document).ready -> 
+					$$('#my-calendar').filter = (arg) ->
+						arg.category == 'infob'

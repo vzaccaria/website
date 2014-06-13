@@ -7,6 +7,8 @@
 { site-base-url }                              = require('./config')
  
 client-js = [ "#destination/js/build/#s" for s in client-brfy-roots ]
+
+_ = require('underscore')
 pc = [ v.name for k,v of post_containers ]
 cc = [ k for k,v of containers ]
 cd = [ v.source for k,v of containers ]
@@ -79,7 +81,7 @@ notifyLivereload = (event) ->
 gulp.task 'build-html', [\build-post_containers \build-containers ], ->
     gulp.src client-html
         .pipe plumber()
-        .pipe jade()
+        .pipe jade(pretty: true)
         .pipe beml()
         .pipe gulp.dest "#destination"
 
@@ -161,6 +163,7 @@ gulp.task 'sjs', ->
     gulp.src directives
         .pipe changed "#destination/js"
         .pipe((spawn { cmd: 'sweet-angle', args: [ '-a', 'application', '/dev/stdin'] }).on 'error', console.log)
+        .pipe concat("directives.js")
         .pipe gulp.dest "#destination/js"
 
 
@@ -236,8 +239,20 @@ gulp.task 'build-post_containers', ['build-posts'], ->
         .pipe rename(extname: '.html')
         .pipe beml()
         .pipe gulp.dest "#destination"
-  
-gulp.task 'default', [
+
+pick-only = (m) ->
+    return _.pick(m, 'title', 'date', 'link', 'tags', 'category')
+
+gulp.task 'write-current-posts-on-disk', (done) ->
+    fs.write-file("#destination/data/index.json", JSON.stringify(_.map(current_posts.posts, pick-only), null, 2), done)
+
+runSequence = require('run-sequence');
+
+gulp.task 'default', (done) ->
+    run-sequence 'build-all', \write-current-posts-on-disk, done
+
+ 
+gulp.task 'build-all', [
     \build-html
     \build-client-js
     \build-vendor-js
@@ -263,7 +278,6 @@ gulp.task 'production', [
     ...
     ]
 
-runSequence = require('run-sequence');
 
 gulp.task 'dev', (done) ->
     runSequence 'build-clean', 'default', 'watch-build', done

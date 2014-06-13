@@ -1,0 +1,61 @@
+
+.teaching-page {
+	.center-within-container();
+	font-family: @font-family;
+}
+
+.teaching-page__title {
+	.smallcapfont(@display-family);
+	font-size: 3em;
+	line-height: .9em;
+	margin-top: .5em;
+}
+
+.teaching-page__year {
+	.smallcapfont(@font-family,  @font-weight:300);
+	letter-spacing: .04em;
+}
+
+@k: 7em;
+@v: 30em;
+
+.contacts {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-family: @font-family;
+	font-size: .9em;
+	line-height: 1.5em;
+}
+
+.contacts__detail {
+	.border-box();
+	display: block;
+}
+
+.contacts__key {
+	.border-box();
+	width: @k;
+	display: inline-block;
+	color: lighten(black, 60%);
+}
+
+.contacts__value {
+	.border-box();
+	width: @v;
+	display: inline-block;
+	color: black;
+}
+
+.lecture-material__title {
+	.nice-section-title();
+}
+
+.lecture-material__calendar {
+	margin-top: 1em;
+	margin-bottom: 2em;
+}
+
+.lecture-material__description {
+	margin-top: 1em;
+	font-size: .9em;
+}

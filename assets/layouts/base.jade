@@ -21,7 +21,7 @@ html
 		link(rel="stylesheet", href="/css/client.css", type="text/css")
 		link(href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
 
-	body(style='opacity: 0')
+	body(style='opacity: 0', ng-app="application")
 		script(type="text/javascript", src="/js/vendor.js")
 		.site_wrapper
 
@@ -33,11 +33,9 @@ html
 				ul.sidebar__link_list
 					+sidebar__link_item('fa-home'           , 'Home'         , '/')
 					+sidebar__link_item('fa-flask'          , 'Research'     , '/research.html')
-					+sidebar__link_item('fa-book'           , 'Publications' , '/publications.html')
 					+sidebar__link_item('fa-quote-left'     , 'Blog'         , '/blog.html')
 					+sidebar__link_item('fa-floppy-o'       , 'Projects'     , '/portfolio.html')
 					+sidebar__link_item('fa-graduation-cap' , 'Teaching'     , '/teaching.html')
-					+sidebar__link_item('fa-envelope'       , 'Contacts'     , '/contacts.html')
 					+sidebar__link_item('fa-user'           , 'CV')
 
 				.sidebar__bottom 
@@ -67,3 +65,4 @@ html
 		script(src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG')
 		script.
 			hljs.initHighlightingOnLoad(); 
+		script(type="text/javascript", src="/js/directives.js")
