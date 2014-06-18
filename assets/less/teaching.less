@@ -8,7 +8,7 @@
 	.smallcapfont(@display-family);
 	font-size: 3em;
 	line-height: .9em;
-	margin-top: .5em;
+	padding-top: .5em;
 }
 
 .teaching-page__year {
@@ -16,8 +16,8 @@
 	letter-spacing: .04em;
 }
 
-@k: 7em;
-@v: 30em;
+@k: 25%;
+@v: 74%;
 
 .contacts {
 	margin-top: 1em;
@@ -34,16 +34,20 @@
 
 .contacts__key {
 	.border-box();
+	font-size: .9em;
 	width: @k;
 	display: inline-block;
 	color: lighten(black, 60%);
+	vertical-align: top;
 }
 
 .contacts__value {
 	.border-box();
 	width: @v;
+	font-size: .9em;
 	display: inline-block;
 	color: black;
+	vertical-align: top;
 }
 
 .lecture-material__title {

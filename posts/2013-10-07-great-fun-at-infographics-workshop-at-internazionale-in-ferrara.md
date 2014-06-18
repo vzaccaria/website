@@ -15,19 +15,16 @@ I am back from a 3 day workshop given by Michael Robinson (Graphic Designer and 
 
 During the three days, we have been given the opportunity to collect personal data of the attendants to the workshop and sketch out ideas for an infographics that was based on it. 
 
-<!-- more start -->
-
 I came out with my own infographic (poorly politically correct, I know) to show which interesting correlations popped up from data. Here you go[^1]:
 
-{% img center http://www.vittoriozaccaria.net/deposit/infographics_workshop_correlations.png 600 %}
+![](http://www.vittoriozaccaria.net/deposit/infographics_workshop_correlations.png)
 
 I've also sketched out the process with which I post-processed the collected data to tap into the significant correlations:
 
-{% img center http://www.vittoriozaccaria.net/deposit/makingofsc.001.png 600 %}
+![](http://www.vittoriozaccaria.net/deposit/makingofsc.001.png)
+
 
 Stay tuned for other post-processing results.
 
- [^1]: In such a short time, the infographic was inevitably created with some elements crawled from the web in a rush. I did not have the time to acknowledge the original authors of those elements nor to take note of who they were. 
-  If you happen to be one of them just drop me an email telling me whether you want to be named (and aknowledged) or you want the graphic element to be removed.
+[^1]: In such a short time, the infographic was inevitably created with some elements crawled from the web in a rush. I did not have the time to acknowledge the original authors of those elements nor to take note of who they were. If you happen to be one of them just drop me an email telling me whether you want to be named (and aknowledged) or you want the graphic element to be removed.
   
-<!-- more end -->

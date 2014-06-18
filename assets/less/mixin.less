@@ -12,6 +12,12 @@
 	zoom: 1;
 }
 
+.nice-card() {
+   background-color: #fbfbfb;
+   box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+   border: 1px solid #d8d8d8;
+}
+
 .border-box() {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -77,10 +83,8 @@
 }
 
 .center-within-container() {
-	// width       : @content-inside-width;
-	// margin-left : (100% - @content-inside-width)/2;
-	// maring-right: (100% - @content-inside-width)/2;
-	width: 800px;
+	-dyn-width: '@selectFrom([@win-width*0.9,800])';
+	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -100,6 +104,10 @@
 
 .show-mobile-block() {
 	-dyn-display: '@selectFrom(["block","none"])';
+}
+
+.show-fluid-block() {
+	-dyn-display: '@selectFrom(["block","inline-block"])';
 }
 
 @tv: 0em;

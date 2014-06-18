@@ -1,5 +1,12 @@
 
 @cell_size: 30px;
+@cell_margin: 2px;
+
+.calendar {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .calendar__day {
 	.border-box();
@@ -7,7 +14,7 @@
 	height: @cell_size;
 	display: inline-block;
 	background-color: @cloud;
-	margin-right: 2px;
+	margin-right: @cell_margin;
 	.smallcapfont(@font-family,  @font-weight:300);
 	text-align: center;
 	font-size: .7em;
@@ -24,9 +31,12 @@
 }
 
 .calendar__month {
-	width: @cell_size * 8;
-	display: inline-block;
+	width: (@cell_size + @cell_margin) * 7;
+	.show-fluid-block();
 	vertical-align: top;
+	-dyn-margin-right: '@selectFrom(["auto", "2%"])';
+	margin-left: auto;
+
 }
 
 .calendar__month_name {

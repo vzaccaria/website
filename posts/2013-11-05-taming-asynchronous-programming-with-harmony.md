@@ -172,14 +172,15 @@ The basic idea goes as follows:
 		o.m()
 	
 	we catch it and handle it with the following handler: 
-	
-		handleMethodMissing = (m) -> 
-            this.promise = this.promise.then( (it) -> scope[m](it) )
-            return this
-		      
+
+    ```
+	handleMethodMissing = (m) -> 
+        this.promise = this.promise.then( (it) -> scope[m](it) )
+        return this
+    ```
 
     now, note that:
-    
+
     * we need a scope in which to look for `m`. In **Chained**, we use `using(module)` to specify/extend this scope.
     * `m` is called with the final value of the previous promise. 
     * even if `m` returns a new promise, this is perfectly fine since the `then` method is going to resolve the original `o.promise` accordingly.
@@ -202,9 +203,10 @@ The API is pretty simple at the moment; however, I think it offers a good level 
 `chain.using(module)`
 : Extends the scope within which all missing methods are searched for. You can include multiple modules:
 
-            using(jQuery)
-            using(underscore)
-
+```
+using(jQuery)
+using(underscore)
+```
 
 `o = chain._(value)` 
 : returns a deferred object whose `promise` property will eventually be resolved to `value`. The object handles missing methods by chaining them using `Q`.
@@ -238,10 +240,11 @@ Given the deferred object `o`, the following methods apply; remember that they r
 
 MIT
 
-
+---
  
- [^1]: The `using` clause extends the scope within which **Chained** looks for functions to be chained.
- [^2]: Make, SQL, CSS are all famous examples of DSLs widely used by developers. 
+[^1]: The `using` clause extends the scope within which **Chained** looks for functions to be chained.
+
+[^2]: Make, SQL, CSS are all famous examples of DSLs widely used by developers. 
 
 
 

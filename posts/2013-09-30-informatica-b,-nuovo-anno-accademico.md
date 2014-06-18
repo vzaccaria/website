@@ -21,6 +21,7 @@ Il corso si svolgerà nelle seguenti aule:
 | CT.43         | Giovedì   | 8:15[^1] - 10:15  |  Esercitazioni       |
 | L 1.3 ed LM 1 | Lunedi    | 15:15 - 19:15[^2] |  Laboratorio         |
 
+
 Il laboratorio non sarà ogni lunedi. Le date effettive del laboratorio sono le seguenti:
 
 **Laboratori:**
@@ -35,5 +36,7 @@ Il laboratorio non sarà ogni lunedi. Le date effettive del laboratorio sono le 
 | 13/Jan/2014 | LM1  |  3                  | 15:15 - 18:15 |
 | **Totale**  |      |  **21**             |               |
 
- [^1]: Dati i ritardi inevitabili dei treni al mattino verrà concordato a lezione un orario che potrebbe essere diverso.
- [^2]:Vedere calendario dei laboratori 
+
+[^1]: Dati i ritardi inevitabili dei treni al mattino verrà concordato a lezione un orario che potrebbe essere diverso
+
+[^2]: Vedere calendario dei laboratori 

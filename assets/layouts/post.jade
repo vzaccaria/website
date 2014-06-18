@@ -20,4 +20,11 @@ block content
 				i.fa.fa-tags
 				each t in post.tags
 					.post_container__post__tag #{t}
+
+			.share_buttons 
+				| Share: 
+				.share_buttons__share_reddit(style="cursor: pointer")
+					i.fa.fa-reddit 
+				.share_buttons__share_twitter(style="cursor: pointer")
+					i.fa.fa-twitter
 		.post_text!= post.contents

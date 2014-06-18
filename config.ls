@@ -29,6 +29,7 @@ _module = ->
 
       client-html:
           "./assets/views/*.jade"
+          "./assets/videos.jade"
           ...
 
       client-less:
@@ -61,14 +62,15 @@ _module = ->
         ...
 
       post_containers: 
-        { name: './assets/index.jade', max-posts: 5, sort-by: sort-by-date, category: 'blog' }
-        { name: './assets/blog.jade', sort-by: sort-by-date, category: 'blog'}
-        { name: './assets/teaching.jade', sort-by: sort-by-date, category: 'infob'}
+        { name: './assets/index.jade'    , max-posts: 5          , sort-by: sort-by-date , category: 'blog' }
+        { name: './assets/blog.jade'     , sort-by: sort-by-date , category: 'blog'}
+        { name: './assets/teaching.jade' , sort-by: sort-by-date , category: 'infob'}
         ...
 
       # relative to the cwd without './'!
       containers: { 
         'assets/research.jade': { source: './data/biblio.json' } 
+        'assets/projects.jade': { source: './data/projects.json' }
       }
 
       layout: {
@@ -79,7 +81,8 @@ _module = ->
                     './assets/layouts/base.jade', 
                     './assets/less/*.less', 
                     './assets/css/*.css', 
-                    './assets/vendor/*.js'
+                    './assets/vendor/*.js',
+                    './data/projects.json'
                     ]
 
     }

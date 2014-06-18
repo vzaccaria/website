@@ -30,13 +30,13 @@ A promise is an object that has a `then` method[^1]:
 
 In a Petri net, the promise state is represented by a **token** — black disk — that is positioned on a **place**. In the following figure, the token is on the *pending* place:
 
-{% img center http://www.vittoriozaccaria.net/deposit/pending1.png 400 %}
+![](http://www.vittoriozaccaria.net/deposit/pending1.png)
 
 The token can move to another place when the **transition** events — black squares — fire. Transitions can fire only when they are enabled, i.e., only when a predetermined number of tokens (**weight**) is positioned on their input places. Without any particular specification, the weight corresponds to the number of input places. The number of marks emitted into a place, when not explicitly shown, is 1.
 
 When the promise is resolved, the output transition from the pending place is fired. If the promise is fulfilled, the marker 'moves' to the fulfilled state:
 
-{% img center http://www.vittoriozaccaria.net/deposit/fulfilled1.png 400 %}
+![](http://www.vittoriozaccaria.net/deposit/fulfilled1.png)
 
 Similarly, the token moves to the rejected place if the promise has been rejected. So far so good.
 
@@ -48,7 +48,7 @@ As shown above, the `then` method returns a new promise:
 
 Let's see, with our new visual model, how the execution of the methods is synchronized with the promise itself:
 
-{% img center http://www.vittoriozaccaria.net/deposit/then1.png  540 %}
+![](http://www.vittoriozaccaria.net/deposit/then1.png)
 
 Once `p1` is fullfilled, the transition event `onFulfilled` is fired — i.e., the callback `onFulfilled` is invoked. If the callback (being it `onFulfilled` or `onReject`) returns a value, `p2` will be fulfilled with that value.
 
@@ -62,7 +62,7 @@ Here I think that the real power of promises is unleashed. If your callbacks —
 
 This Petri net allows to understand very well what's going on:
 
-{% img center http://www.vittoriozaccaria.net/deposit/returned_promise1.png 600 %}
+![](http://www.vittoriozaccaria.net/deposit/returned_promise1.png)
 
 Petri nets allow to model these synchronization points very easily. This is done by forcing the number of tokens that can enable a place transition. In fact, the transition of 1 token to the `p2-fullfilled` place can only be fired when there are two tokens on the input of the commanding transition.
 
@@ -77,5 +77,7 @@ You can download the visual cheat sheet for Petri Nets for promises [from this a
 ## Suggested readings
 
 * T. Murata — Petri Nets: Properties, Analysis and Applications - 1989, [Available at this address](http://embedded.eecs.berkeley.edu/Respep/Research/hsc/class.F03/ee249/discussionpapers/PetriNets.pdf).
+
+---
  
- [^1]: We are not going to deal with how this object is generated. We assume that some computation has started and an object representing its future value has been created.  
+[^1]: We are not going to deal with how this object is generated. We assume that some computation has started and an object representing its future value has been created.  

@@ -6,7 +6,7 @@ layout: post
 category : blog 
 tags : ["design", "ux", "web", "elearning"] 
 description : Recently, I've been delving more and more into User Experience design, and I thought that my basic computer science class would be an awesome starting point to learn how to apply UX principles to a practical case.
-og_image : deposit/ux.png
+og_image :
 ---
 
 
@@ -29,6 +29,9 @@ on the other hand, the teacher could:
 
 Above all, being able to *implement* and *measure*, the teacher could apply [lean techniques](http://runninglean.co/) to validate his own product — the class — and build a succesfull learning experience.
 
-I've realizied a first initial User Journey Map to sketch out how the new web environment (green boxes) could be integrated into the class. You can download the pdf [from this link](http://www.vittoriozaccaria.net/deposit/UX%20-%20UI%20templates.pdf).
+I've realizied a first initial User Journey Map to sketch out how the new web environment (green boxes) could be integrated into the class. You can download the pdf [from this link](http://www.vittoriozaccaria.net/deposit/UX%20-%20UI%20templates.pdf). 
+
+![](http://www.vittoriozaccaria.net/deposit/ux.png)
+ 
 
 Thoughts?

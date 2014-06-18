@@ -1,0 +1,18 @@
+extends ./layouts/base 
+
+block append title 
+	title Vittorio Zaccaria — Teaching 
+
+mixin project(name, description, image, link)
+	div(block='project', onclick="location.href='#{link}'", style="cursor: pointer") 
+		img(elem='image', src=image)
+		div(elem='name')= name 
+		div(elem='description')= description
+
+block content 
+
+	div(block='projects-page')
+		div(elem='title') projects
+		div(elem='project-list')
+		for d in data 
+			+project(d.name, d.description, d.image, d.link)

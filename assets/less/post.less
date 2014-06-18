@@ -18,7 +18,7 @@
 .post_container__post__subtitle {
 	font-family : @font-family;
 	font-weight : 300;
-	font-size   : 1.1em;
+	font-size   : 1em;
 	line-height : 1.5em;
 	margin-top  : @post-spacing;
 }
@@ -41,13 +41,18 @@
 
 .post_container__post__tags {
 	.show-desktop-inline-block();
+	.border-box();
+	height: 100%;
 	padding-left: @margin;
-	// border-right   : 2px solid fade(@blue, 10%);
-	// padding-right  : @margin;
+	border-right   : 2px solid fade(@blue, 10%);
+	padding-right  : @margin;
+	vertical-align: bottom;
 }
 
 .post_container__post__tag {
 	.tag(@pumpkin);
+	.border-box();
+	vertical-align: bottom;
 }
 
 .post_container__post__date_value {
@@ -109,6 +114,73 @@
 	border: 1px solid #d8d8d8;
 }
 
+@hp: .7em;
+@vp: .05em;
+
+@tc: #fbfbfb;
+
+.post_text table {
+	.nice-card();
+	background-color: @tc;
+	font-size: .8em;
+	padding: .5em; 
+	margin: auto;
+	& td,
+	& th {
+		padding-left: @hp;
+		padding-right: @hp;
+		padding-top: @vp;
+		padding-bottom: @vp;
+		border: none;
+	}
+	& th {
+		line-height: 2em;
+		color: @belize;
+		text-align: left;
+	}
+	& tbody tr:hover {
+		background-color: darken(@tc, 3%);
+	}
+}
+
+.post_text .footnote {
+	margin: 0;
+	font-size: .8em;
+	padding-top: 1em;
+
+	& sup {
+		color: @pumpkin;
+		margin-right: .5em;
+	}
+	& a {
+		margin-left: 1em;
+	}
+}
+
+.post_text hr {
+	// height: 1.5em;
+	width: 20%;
+	margin-top: 6em;
+	margin-left: 0;
+	// margin-left: 0;
+}
+
+.share_buttons__share_reddit, 
+.share_buttons__share_twitter, 
+.share_buttons {
+	.border-box();
+	display: inline-block;
+	padding-left: @margin;
+}
+
+.share_buttons__share_reddit {
+	color: @pumpkin;
+}
+
+.share_buttons__share_twitter {
+	color: @belize;
+}
+
 
 // .post_text pre code {
 // 	color: @pumpkin;
@@ -120,4 +192,5 @@
 	font-size: 1.2em;
 	line-height: 1.6;
 	margin-top: 2em;
+	margin-bottom: 10em;
 }

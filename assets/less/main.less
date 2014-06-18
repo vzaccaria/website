@@ -16,9 +16,12 @@
 @display-family       : 'Francois One';
 @code-font-family     : 'Ubuntu Mono';
 
+@display-font: @display-family;
+@normal-font: @font-family;
+@code-font: @code-font-family;
+
 /* Absolute measures */
 @sidebar-width: 250;
-@content-inside-width : 60%;
 
 @desktop-content-width  : '(@win-width - @{sidebar-width})';
 @desktop-content-offset : '"@{desktop-sidebar-width}"';
@@ -88,7 +91,8 @@ body {
 @import 'bio.less';
 @import 'calendar.less';
 @import 'teaching.less';
-
+@import 'projects.less';
+@import 'videos.less';
 
 // .post_list {
 // 	position       : static;

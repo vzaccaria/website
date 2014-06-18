@@ -6,7 +6,8 @@
 .sidebar__name {
 	font-family : @font-family;
 	color       : lighten(@cloud, 10%);
-	text-align  : center;
+	-dyn-text-align: '@selectFrom(["left", "center"])';
+	-dyn-padding-left: '@selectFrom(["5%", "0%"])';
 	font-size   : 1.48em;
 	font-weight : 300;
 	line-height : 1.5em;
@@ -17,7 +18,8 @@
 .sidebar__address {
 	font-family : @font-family;
 	color       : @silver;
-	text-align  : center;
+	-dyn-text-align: '@selectFrom(["left", "center"])';
+	-dyn-padding-left: '@selectFrom(["5%", "0%"])';
 	font-size   : 1.15em;
 	font-weight : 300;
 	line-height : 1.5em;
@@ -60,16 +62,17 @@
 @link_item_padding: 0.45em;
 
 @effect: 3%;
+@effect-color: lighten(@blue, @effect);
 
 .sidebar__link_item {
-	-dyn-display: '@selectFrom(["inline-block", "block"])';
-	padding-left: 5%;
-	-dyn-width: '@selectFrom(["20%", "95%"])';
-	color            : @cloud;
-	background-color : @blue;
-	padding-bottom   : @link_item_padding;
-	padding-top      : @link_item_padding;
-	background-color: lighten(@blue, @effect);
+	-dyn-display      : '@selectFrom(["inline-block", "block"])';
+	-dyn-padding-left : '@selectFrom(["2%", "5%"])';
+	-dyn-width        : '@selectFrom(["18%", "95%"])';
+	color             : @cloud;
+	background-color  : @blue;
+	padding-bottom    : @link_item_padding;
+	padding-top       : @link_item_padding;
+	background-color  : '@selectFrom(["@{blue}", "#{effect-color}"])';
 }
 
 @icon-size: 1.2em;
@@ -88,7 +91,8 @@
 	font-size      : @icon-size;
 	min-width      : 1.2em;
 	// border-right   : 2px solid fade(@cloud, 10%);
-	padding-right  : 5%;
+	-dyn-padding-right: '@selectFrom(["0%", "5%"])';
+	// padding-right  : 5%;
 	vertical-align : middle;
 	text-align     : center;
 	.border-box();

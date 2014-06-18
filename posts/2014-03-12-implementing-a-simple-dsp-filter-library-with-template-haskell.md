@@ -5,8 +5,7 @@ date: 2014-03-12 15:25:50
 layout: post
 category : blog 
 tags : ["haskell", "digital signal processing"] 
-description : Let's see how you can write a reusable finite impulse response filter in Template Haskell. Since it allows to manipulate the syntax tree at compile time, you will get constant propagation and other optimizations for free on the structure of your FIR filter.
-og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
+description : Check out how you can write a reusable finite impulse response filter in Template Haskell. Since it allows to manipulate the syntax tree at compile time, you will get constant propagation and other optimizations for free on the structure of your FIR filter.
 ---
 
 *Note: This is part 2 of small tutorial on Template Haskell I wrote on my blog; the tutorial is composed of [part1](http://www.vittoriozaccaria.net/blog/2014/02/24/towards-template-programming-with-haskell.html), [part 2](http://www.vittoriozaccaria.net/blog/2014/03/12/implementing-a-simple-dsp-filter-library-with-template-haskell.html) and [part 3](http://www.vittoriozaccaria.net/blog/2014/03/21/symbolically-optimize-dsp-filters-with-template-haskell.html)*.
@@ -141,4 +140,6 @@ Where to go from here
 ----------------
 In the next post, we will see how to programmatically simplify these expressions to yield more efficient filters by applying general and domain specific optimizations. 
 
- [^1]: I simplified the operators representation by removing `GHC.List` and `GHC.Num`.
+---
+
+[^1]: I simplified the operators representation by removing `GHC.List` and `GHC.Num`.

@@ -6,7 +6,6 @@ layout: post
 category : blog 
 tags : ["haskell", "digital signal processing"]
 description : Template Haskell is a powerful tool to do general and domain specific optimizations of your code. Even if it is written in another programming language! 
-og_image: http://www.vittoriozaccaria.net/deposit/lambda.png
 ---
 
 
@@ -281,6 +280,7 @@ I.e., the input signal delayed by two.
 </a>
 
 
+--- 
 
- [^1]: with some sugar to make it more digestible. 
+[^1]: with some sugar to make it more digestible. 
 

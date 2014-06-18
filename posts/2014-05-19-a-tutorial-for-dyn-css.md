@@ -6,6 +6,7 @@ layout: post
 category : blog 
 tags : ["CSS", "Dynamic"] 
 og_image: http://www.vittoriozaccaria.net/deposit/img-dyncss.jpg
+description: DynCSS is a small Javascript add-on for your web pages. It parses your CSS and converts the rules into dynamic Javascript that is executed on browser's events like scroll and resize.
 
 ---
 

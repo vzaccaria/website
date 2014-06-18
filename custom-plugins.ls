@@ -83,8 +83,10 @@ render-container = (containers) ->
         relpath       = path.relative(workdir, sourcefile)
         data          = require(containers[relpath].source)
 
+
         for p in data 
-          p.keywords ?= []
+
+          p.keyword ?= []
           p.type = 
             | 'bookc' in p.keyword      => 'bookchapter'
             | 'journal' in p.keyword    => 'journal'
@@ -98,6 +100,7 @@ render-container = (containers) ->
             | 'forum' in p.keyword       => 'talk'
             | 'thesis' in p.keyword     => 'thesis'
             | _                         => 'not categorized'
+
 
           if p.type == 'journal'
             p.booktitle = p.journal.name
@@ -117,10 +120,12 @@ render-container = (containers) ->
           if not p.pages?
             p.pages = '—'
 
-          if not p['bdsk-url-1']?
-            p.link = url: 'vittorio.zaccaria@polimi.it'
-          else 
-            p.link = url: p['bdsk-url-1']
+          if not p.link? 
+            
+            if not p['bdsk-url-1']?
+              p.link = url: 'vittorio.zaccaria@polimi.it'
+            else 
+              p.link = url: p['bdsk-url-1']
 
           if p.booktitle?
             s  = p.booktitle

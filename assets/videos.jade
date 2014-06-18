@@ -1,0 +1,41 @@
+extends ./layouts/base 
+
+block append title 
+	title Vittorio Zaccaria — Videos
+
+block content
+
+	div(block='videos-page') 
+		div(elem='title') Institutional videos 
+		div(elem='description')
+		div(elem='video-list')
+
+
+			div(block='video')
+				iframe(elem='iframe', type="text/html", src="//player.vimeo.com/video/98439511", frameborder="0")
+				div(elem='data')
+					div(elem='title') Past and current research
+					div(elem='recorded-on') January 13th, 2014, Milano (IT)
+					div(elem='description')
+
+						:markdown
+							Here is the talk I gave about my research interests 
+							in computer modeling and architecture, focusing on 
+							the lessons I've learnt along the way.
+
+					div(elem='language') spoken: italian 
+					div(elem='language') slides: english
+
+			div(block='video')
+				iframe(elem='iframe', type="text/html", src="//www.youtube.com/embed/Ne6Y8Pg6MfY", frameborder="0")
+				div(elem='data')
+					div(elem='title') DAC 2012 University Booth 
+					div(elem='recorded-on') June 2012, San Francisco (US)
+					div(elem='description')
+
+						:markdown
+							The video we presented at the Design Automation 
+							Conference on June 2012. 
+
+					div(elem='language') english
+

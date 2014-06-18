@@ -11,13 +11,12 @@
 
 
 .post-preview {
+	.border-box();
 	display            : block;
 	-dyn-margin-bottom : '@selectFrom(["0em", "3em"])';
 	color              : inherit;
 	text-decoration    : none;
-
-
-
+	-dyn-height: '@selectFrom(["75px", "auto"])';
 }
 
 .post-preview__image {
@@ -29,6 +28,7 @@
 	display: inline-block;
 	background-color: white;
 	vertical-align: top;
+
 }
 
 .post-preview__desc-column {
@@ -142,9 +142,9 @@
 // 	/_/ /_/ /_/\____/_.___/_/_/\___/   \__,_/\___/____/\___/_/  /_/ .___/\__/_/\____/_/ /_/ 
 // 	                                                             /_/                        
 
-@element-distance: 5px;
+@element-distance: 4px;
 @date_desc_height: @element-distance*10;
-@date_desc_space: 10px;
+@date_desc_space: 2%;
 @title_desc_space: 2px;
 
 .posts_container__post__description-mobile {
@@ -152,40 +152,41 @@
 	padding-top: @element-distance;
 	border-bottom: @border;
 	padding-bottom: @element-distance;
+	background-color: white;
 }
 
 .posts_container__post__description-mobile__title {
 	font-family: @display-family;
 	font-weight: 500;
-	margin-bottom: @title_desc_space;
-	line-height: 1.4em;
+	// margin-bottom: @title_desc_space;
+	// line-height: 1.4em;
 }
 
 .posts_container__post__description-mobile__small_date {
 	width               : 15%;
-	font-family         : @font-family;
+	font-family         : @display-font;
 	-dyn-font-size      : '@selectFrom(["1.5em","1.1em"])';
 	font-weight         : 500;
-	line-height         : @date_desc_height;
 	height              : @date_desc_height;
-	margin-left         : 5%;
+	// margin-left         : 5%;
 	// padding          : .2em;
 	border-radius       : 5px;
 	// background-color : @pumpkin;
 	color               : @pumpkin;
 	text-align          : center;
 	display             : inline-block;
+	vertical-align: top;
 }
 
 
 
 
 .posts_container__post__description-mobile__small_description {
-	width          : 75%;
+	width          : 83%;
 	font-family    : @font-family;
 	-dyn-font-size : '@selectFrom([".9em","1.1em"])';
 	font-weight    : 300;
-	line-height    : 1.5em;
+	line-height    : 1.2em;
 	vertical-align : top;
 	height         : @date_desc_height;
 	padding-left   : @date_desc_space;
