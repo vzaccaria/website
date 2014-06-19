@@ -17,12 +17,12 @@ html
 		meta(name="description", content="")
 		meta(name="keywords", content="")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui")
-		link(rel="stylesheet", href="/css/vendor.css", type="text/css")
-		link(rel="stylesheet", href="/css/client.css", type="text/css")
+		link(rel="stylesheet", href="#{baseUrl}/css/vendor.css", type="text/css")
+		link(rel="stylesheet", href="#{baseUrl}/css/client.css", type="text/css")
 		link(href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
 
 	body(style='opacity: 0', ng-app="application")
-		script(type="text/javascript", src="/js/vendor.js")
+		script(type="text/javascript", src="#{baseUrl}/js/vendor.js")
 		.site_wrapper
 
 			.sidebar 
@@ -31,13 +31,13 @@ html
 				.sidebar__address Politecnico di Milano
 
 				ul.sidebar__link_list
-					+sidebar__link_item('fa-home'           , 'Home'     , '/')
-					+sidebar__link_item('fa-flask'          , 'Research' , '/research.html')
-					+sidebar__link_item('fa-quote-left'     , 'Blog'     , '/blog.html')
-					+sidebar__link_item('fa-floppy-o'       , 'Projects' , '/projects.html')
-					+sidebar__link_item('fa-graduation-cap' , 'Teaching' , '/teaching.html')
-					+sidebar__link_item('fa-user'           , 'CV'       , 'http://www.vittoriozaccaria.net/deposit/cv.pdf')
-					+sidebar__link_item('fa-youtube-play'   , 'Videos'   , '/videos.html')
+					+sidebar__link_item('fa-home'           , 'Home'     , baseUrl + "")
+					+sidebar__link_item('fa-flask'          , 'Research' , baseUrl + "/research.html")
+					+sidebar__link_item('fa-quote-left'     , 'Blog'     , baseUrl + "/blog.html")
+					+sidebar__link_item('fa-floppy-o'       , 'Projects' , baseUrl + "/projects.html")
+					+sidebar__link_item('fa-graduation-cap' , 'Teaching' , baseUrl + "/teaching.html")
+					+sidebar__link_item('fa-user'           , 'CV'       , "http://www.vittoriozaccaria.net/deposit/cv.pdf")
+					+sidebar__link_item('fa-youtube-play'   , 'Videos'   , baseUrl + "/videos.html")
 
 				.sidebar__bottom 
 					.sidebar__bottom__button(onclick="location.href='http://www.linkedin.com/in/vzaccaria'", style="cursor: pointer")
@@ -56,7 +56,7 @@ html
 
 
 
-		script(type="text/javascript", src="/js/client.js")
+		script(type="text/javascript", src="#{baseUrl}/js/client.js")
 		script
 			:coffee
 				window.dynCss.api.setBreakpoints([481],'@win-width')
@@ -66,4 +66,4 @@ html
 		script(src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG')
 		script.
 			hljs.initHighlightingOnLoad(); 
-		script(type="text/javascript", src="/js/directives.js")
+		script(type="text/javascript", src="#{baseUrl}/js/directives.js")

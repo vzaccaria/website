@@ -44,7 +44,7 @@ capture-info = (data) ->
        data.posts.push file.locals.post 
        cb(false, file)
 
-render-index = (data, pc-info) -> 
+render-index = (data, pc-info, baseUrl) -> 
 
   return map (file, cb) ->
       pc = {}
@@ -69,13 +69,13 @@ render-index = (data, pc-info) ->
 
         console.log posts-filtered.length
 
-        locals = { filename: file.path, posts: data.posts, filtered-posts: posts-filtered, pretty: true }
+        locals = { filename: file.path, posts: data.posts, filtered-posts: posts-filtered, pretty: true, baseUrl: baseUrl }
         file.contents = new Buffer(jade.compile(file.contents, locals)(locals));
       catch 
         console.log "gulp-render-index: #e"
       cb(false, file)
 
-render-container = (containers) ->
+render-container = (containers, baseUrl) ->
     return map (file, cb) ->
       try 
         workdir       = file.cwd
@@ -138,7 +138,7 @@ render-container = (containers) ->
 
 
 
-        locals        = { filename: file.path, data: data,  pretty: true }
+        locals        = { filename: file.path, data: data,  pretty: true, baseUrl: baseUrl }
         file.contents = new Buffer(jade.compile(file.contents, locals)(locals));
       catch 
         console.log "gulp-render-container: #e"
@@ -169,6 +169,7 @@ render-blog-post = (templates, url) ->
           post: post
           filename: template.name 
           pretty: true 
+          baseUrl: url
 
       curpath       = parse-path(file.relative)
       curpath       = rename-path(curpath, locals)

@@ -8,9 +8,11 @@ _module = ->
 
       # main properties 
       destination:'_site'
-      remote:'blog'
 
-      site-base-url: ''
+      # note n2:  `site-base-url` should be a symbolic link to `destination`
+
+      remote            : 'v2'
+      site-base-url     : '/v2'
 
       vendor-js:
           "./assets/vendor/jquery.min.js"

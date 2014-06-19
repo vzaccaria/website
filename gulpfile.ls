@@ -53,7 +53,7 @@ beml       = require('gulp-beml')
 
 
 EXPRESS_PORT       = 4000;
-EXPRESS_ROOT       = destination;
+EXPRESS_ROOT       = '.';
 LIVERELOAD_PORT    = 35729;
 LIVERELOAD_LATENCY = 500;
 
@@ -81,7 +81,7 @@ notifyLivereload = (event) ->
 gulp.task 'build-html', [\build-post_containers \build-containers ], ->
     gulp.src client-html
         .pipe plumber()
-        .pipe jade(pretty: true)
+        .pipe jade(pretty: true, locals: { baseUrl: site-base-url })
         .pipe beml()
         .pipe gulp.dest "#destination"
 
@@ -226,7 +226,7 @@ gulp.task 'build-containers', ->
     cc = [ k for k,v of containers ]
     gulp.src cc 
         .pipe plumber() 
-        .pipe render-container(containers)
+        .pipe render-container(containers, site-base-url)
         .pipe rename(extname: '.html')
         .pipe beml()
         .pipe gulp.dest "#destination"
@@ -235,7 +235,7 @@ gulp.task 'build-post_containers', ['build-posts'], ->
     
     gulp.src pc
         .pipe plumber()
-        .pipe render-index(current_posts, post_containers)
+        .pipe render-index(current_posts, post_containers, site-base-url)
         .pipe rename(extname: '.html')
         .pipe beml()
         .pipe gulp.dest "#destination"
