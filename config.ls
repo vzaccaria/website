@@ -15,7 +15,7 @@ _module = ->
       site-base-url     : '/v2'
 
       vendor-js:
-          "./assets/vendor/jquery.min.js"
+          "./bower_components/jquery/dist/jquery.min.js"
           "./assets/vendor/dyncss.js"
           "./bower_components/fastclick/lib/fastclick.js"
           "./bower_components/angular/angular.min.js"

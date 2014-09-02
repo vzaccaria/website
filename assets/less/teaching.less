@@ -54,6 +54,42 @@
 	.nice-section-title();
 }
 
+.lecture-messages__title {
+	.nice-section-title();
+}
+
+.messages {
+
+}
+
+.message {
+	margin-top: 1em;
+	vertical-align: top;
+}
+
+
+.message__date {
+	font-size: .9em;
+	line-height: 1.1111em;
+	display: inline-block;
+	width: 15%;
+	color: @pomegrenade;
+	margin-right: 1%;
+	vertical-align: top;
+	&:extend(.cf all);
+}
+
+.message__text {
+	display: inline-block;
+	width: 82%;
+	vertical-align: top;
+	&:extend(.cf all);
+	margin-top: 0px;
+	& p {
+		margin-top: 0px;
+	}
+}
+
 .lecture-material__calendar {
 	margin-top: 1em;
 	margin-bottom: 2em;

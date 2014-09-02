@@ -68,7 +68,6 @@ add-twitter-button = (selector) ->
 
 
 add-google-tracking = ->
-    console.log "Getting google."
     url = "http://www.google-analytics.com/urchin.js"
     jQuery.getScript url, (script, success) ->
         if success

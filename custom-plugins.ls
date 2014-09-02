@@ -67,7 +67,7 @@ render-index = (data, pc-info, baseUrl) ->
 
 
 
-        console.log posts-filtered.length
+        console.log "Rendering #{file.path} with #{posts-filtered.length} posts"
 
         locals = { filename: file.path, posts: data.posts, filtered-posts: posts-filtered, pretty: true, baseUrl: baseUrl }
         file.contents = new Buffer(jade.compile(file.contents, locals)(locals));

@@ -56,13 +56,16 @@ EXPRESS_PORT       = 4000;
 EXPRESS_ROOT       = '.';
 LIVERELOAD_PORT    = 35729;
 LIVERELOAD_LATENCY = 500;
+LIVERELOAD_ENABLE  = false
 
-start-express = ->
+startExpress = ->
   express = require('express');
   app = express();
-  app.use(require('connect-livereload')());
+  app.use(require('connect-livereload')()) if LIVERELOAD_ENABLE
   app.use(express.static(EXPRESS_ROOT, {maxAge: 0}));
   app.listen(EXPRESS_PORT);
+  console.log "Express started at: #{EXPRESS_PORT}"
+  console.log "Added connect-livereload: " if LIVERELOAD_ENABLE
 
 var lr
 
@@ -177,8 +180,8 @@ gulp.task 'js-build-clean', ->
 
 gulp.task 'watch-build', ->
   startExpress();
-  startLivereload();
-  gulp.watch(force-file-reload, notifyLivereload);
+  startLivereload() if LIVERELOAD_ENABLE
+  gulp.watch(force-file-reload, notifyLivereload) if LIVERELOAD_ENABLE
   gulp.watch(files-to-watch, ["default"])
 
 
@@ -244,6 +247,7 @@ pick-only = (m) ->
     return _.pick(m, 'title', 'date', 'link', 'tags', 'category')
 
 gulp.task 'write-current-posts-on-disk', (done) ->
+    console.log "Generating general index: #destination/data/index.json"
     fs.write-file("#destination/data/index.json", JSON.stringify(_.map(current_posts.posts, pick-only), null, 2), done)
 
 runSequence = require('run-sequence');

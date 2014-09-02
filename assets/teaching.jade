@@ -7,7 +7,7 @@ block append title
 block content
 	div(block='teaching-page')
 		div(elem='title') Informatica B 
-		div(elem='year') Anno accademico 2013 — 2014 
+		div(elem='year') Anno accademico 2014 — 2015 
 		div(block='contacts')
 			div(elem='detail')
 				div(elem='key') Docente
@@ -18,10 +18,32 @@ block content
 			div(elem='detail')
 				div(elem='key') Ufficio
 				div(elem='value') Piazza Leonardo da Vinci 32 - 20133 Milano
+		div(block='lecture-messages') 
+			div(elem='title') Avvisi importanti
+			div(block='messages')
+
+				div(block='message')
+					div(elem='date') 27 Agosto 2014
+					div(elem='text')
+						:markdown
+							Gli esami orali dell'appello del 1 Settembre 2014 si terranno **il giorno stesso**
+							contestualmente alla correzione e valutazione del compito. 
+
+				div(block='message')
+					div(elem='date') 2 Luglio 2014
+					div(elem='text')
+						:markdown
+							Le soluzioni del compito dell'appello sono disponibili a [questo indirizzo](#{baseUrl}/infob/2014/07/02/soluzioni-esame-appello-estivo-2014.html)
+
+
+
 		div(block='lecture-material')
 			div(elem='title') Calendario e materiale
-			div(elem='description') Cliccare sui giorni evidenziati in arancione per accedere al materiale corrispondente.
-			#my-calendar(elem='calendar', calendar, start-month='September 2013', number-of-months='6', url="#{baseUrl}/data/index.json")
+			div(elem='description') 
+				:markdown
+					Cliccare sui giorni evidenziati in arancione per accedere al materiale corrispondente.
+
+			#my-calendar(elem='calendar', calendar, start-month='September 2014', number-of-months='6', url="#{baseUrl}/data/index.json")
 
 
 		script

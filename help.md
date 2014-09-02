@@ -1,4 +1,17 @@
+# Description 
 
+This directory holds my website. There are basically two main targets for gulp.  
+
+1. In order to live edit posts: 
+
+   `cult dev`
+
+   This watches for changes and recompiles. You can use the express server 
+   on port 4000 to browse. 
+
+2. To deploy into the standard website: 
+
+   `cult deploy`
 
 # Things to do
 
