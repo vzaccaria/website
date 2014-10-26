@@ -4,7 +4,7 @@ date: 2013-11-04 08:31:13
 
 layout: post
 category : infob 
-tags : ["esercizio"] 
+tags : ["esercizio", "media in C", "stringhe in C", "matrici in C"] 
 ---
 
 ## Calcolo della media di un insieme di float

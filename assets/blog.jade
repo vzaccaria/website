@@ -29,10 +29,13 @@ block content
 					div(elem='description')
 						div(elem='description-text') #{p.description}
 
-				.posts_container__post__description-mobile
-					.posts_container__post__description-mobile__title #{p.title}
-					.posts_container__post__description-mobile__small_date #{p.smallDate}
-					.posts_container__post__description-mobile__small_description #{p.smallDescription}
+			a(block='post-preview-mobile', href='#{p.link}', style="cursor: pointer")
+				div(elem='description')
+					div(elem='title') #{p.title}
+					div(elem='small-date') #{p.smallDate}
+					div(elem='small-description') #{p.smallDescription}
+
+
 
 
 				//- .posts_container__post(onclick="location.href='#{p.link}'", style="cursor: pointer")

@@ -4,7 +4,7 @@ date: 2013-11-21 11:18:07
 
 layout: post
 category : infob 
-tags : ["lezione"] 
+tags : ["esame", "strutture in C", "algoritmi in C"] 
 ---
 
 Ecco le tanto agognate soluzioni del primo tema d'esame:

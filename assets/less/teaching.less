@@ -25,77 +25,122 @@
 	font-family: @font-family;
 	font-size: .9em;
 	line-height: 1.5em;
-}
 
-.contacts__detail {
-	.border-box();
-	display: block;
-}
+	&__detail {
+		.border-box();
+		display: block;
+	}
 
-.contacts__key {
-	.border-box();
-	font-size: .9em;
-	width: @k;
-	display: inline-block;
-	color: lighten(black, 60%);
-	vertical-align: top;
-}
+	&__key {
+		.border-box();
+		font-size: .9em;
+		width: @k;
+		display: inline-block;
+		color: lighten(black, 60%);
+		vertical-align: top;
+	}
 
-.contacts__value {
-	.border-box();
-	width: @v;
-	font-size: .9em;
-	display: inline-block;
-	color: black;
-	vertical-align: top;
-}
-
-.lecture-material__title {
-	.nice-section-title();
-}
-
-.lecture-messages__title {
-	.nice-section-title();
-}
-
-.messages {
+	&__value {
+		.border-box();
+		width: @v;
+		font-size: .9em;
+		display: inline-block;
+		color: black;
+		vertical-align: top;
+	}
 
 }
 
-.message {
-	margin-top: 1em;
-	vertical-align: top;
+.lecture-material {
+
+	&__title {
+		.nice-section-title();
+	}
+
+	&__calendar {
+		margin-top: 1em;
+		margin-bottom: 2em;
+	}
+
+	&__description {
+		margin-top: 1em;
+		font-size: .9em;
+	}
+
+	&.only-desktop {
+		.show-desktop-block(); 
+	}
+
 }
 
 
-.message__date {
-	font-size: .9em;
-	line-height: 1.1111em;
-	display: inline-block;
-	width: 15%;
-	color: @pomegrenade;
-	margin-right: 1%;
-	vertical-align: top;
-	&:extend(.cf all);
+.lecture-messages {
+
+	&__title {
+		.nice-section-title();
+	}
+
+	&__messages {
+
+	}
+
+	&__message {
+		margin-top: 1.5em;
+		vertical-align: top;
+	}
+
+	&__date {
+		font-size: .8em;
+		line-height: 1.1111em;
+ 		display: block;
+		color: @pomegrenade;
+		margin-right: 1%;
+		vertical-align: top;
+		&:extend(.cf all);
+	}
+
+	&__text {
+		display: block;
+		vertical-align: top;
+		&:extend(.cf all);
+		margin-top: .2rem;
+		& p {
+			margin-top: 0px;
+		}
+	}
+
 }
 
-.message__text {
-	display: inline-block;
-	width: 82%;
-	vertical-align: top;
-	&:extend(.cf all);
-	margin-top: 0px;
-	& p {
-		margin-top: 0px;
+
+
+@import 'table.less';
+@import 'segment.less';
+
+.table {
+	& thead tr th div {
+		text-align: center;
+		.smallcapfont(@display-font);
+		font-size: 1.2rem;
+		font-weight: 300;
+	}
+	&__row {
+		height: 1.9rem
+	}
+	&__cell_title {
+		max-width: 400px;
+	}
+	&__cell_date {
+		max-width: 100px;
+	}
+	// &__cell_tags {
+	// 	max-width: 200px;
+	// }
+	&__cell_tag {
+		.tag(@pumpkin);
+		.border-box();
+		vertical-align: bottom;
 	}
 }
 
-.lecture-material__calendar {
-	margin-top: 1em;
-	margin-bottom: 2em;
-}
 
-.lecture-material__description {
-	margin-top: 1em;
-	font-size: .9em;
-}
+

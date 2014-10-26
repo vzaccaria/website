@@ -4,7 +4,7 @@ date: 2013-09-02 14:50:54
 
 layout: post
 category : infob 
-tags : ["esame", "soluzione"] 
+tags : ["esame", "strutture dati in C", "ricorsione in Matlab"] 
 ---
 
 L'esame orale si terrà Venerdí 6 Settembre alle ore 14:00 in aula PT1 al DEIB (piano terra).

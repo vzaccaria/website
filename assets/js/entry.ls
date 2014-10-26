@@ -32,7 +32,7 @@ add-fast-click = ->
 
 window.addEventListener 'load', add-fast-click, false
 
-application = angular.module('application', [])
+application = angular.module('application', ['ngTable'])
 
 # Apply it to the div that will contain the widget:
 # 
@@ -73,6 +73,34 @@ add-google-tracking = ->
         if success
                 _uacct = "UA-4069654-2"
                 urchinTracker(); 
+
+
+application.controller 'pageController', ($scope, $filter, $http, ngTableParams) ->
+
+    orig-data = 
+        {data: 1}
+        {data: 2}
+        ...
+
+    numpar = 
+        page: 1
+        count: 10
+         
+
+    otherpar =
+        total: orig-data.length
+        getData: ($defer,params) ->
+
+             tags-to-look = [\esame \esami \soluzione \soluzioni \esercizio ]
+
+             $http({method: 'GET', url: '/v2/data/index.json' }).success ->
+                orig-data   = _.filter it, -> 
+                    (it.category == 'infob') && (_.intersection(tags-to-look, it.tags).length > 0)
+
+                $scope.temi = $filter('filter')(orig-data, params.filter()) 
+                $defer.resolve($scope.temi)
+
+    $scope.tableParams = new ngTableParams(numpar, otherpar)
 
 jQuery(document).ready ->
     add-reddit-button('.share_buttons__share_reddit')

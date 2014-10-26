@@ -3,7 +3,7 @@ title: comunicazione del 6/2
 date: 2014-02-06 06:43:01 
 layout: post
 category : infob 
-tags : [ "soluzione", "esame", "esercizi" ] 
+tags : [ "soluzione", "esame", "esercizi", "Matlab"] 
 ---
 
 

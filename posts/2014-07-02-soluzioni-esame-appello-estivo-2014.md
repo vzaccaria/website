@@ -4,7 +4,7 @@ date: 2014-07-02 13:13:01
 
 layout: post
 category : infob 
-tags : ["lezione", "soluzione compito"] 
+tags : ["esame", "soluzione compito", "C", "Matlab"] 
 ---
 
 # Esercizio 1

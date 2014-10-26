@@ -4,7 +4,7 @@ date: 2013-10-28 20:23:23
 
 layout: post
 category : infob 
-tags : ["esercizio"] 
+tags : ["esercizio", "fibonacci in C", "strutture dati in C"] 
 ---
 
 In ritardo ormai cronico, ecco gli esercizi fatti da Luigi giovedi' scorso.

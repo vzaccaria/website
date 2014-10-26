@@ -20,6 +20,8 @@ _module = ->
           "./bower_components/fastclick/lib/fastclick.js"
           "./bower_components/angular/angular.min.js"
           "./bower_components/moment/moment.js"
+          "./bower_components/ng-table/ng-table.js"
+          "./bower_components/lodash/dist/lodash.js"
           ...
 
       # client files 

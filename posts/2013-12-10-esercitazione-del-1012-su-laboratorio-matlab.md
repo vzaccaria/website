@@ -3,7 +3,7 @@ title: Laboratorio del 2/12 su matlab
 date: 2013-12-10 10:47:08 
 layout: post
 category : infob 
-tags : [ "laboratorio", "matlab" ] 
+tags :  [ "esercizi", "funzioni in matlab" ] 
 ---
 
 Ringrazio Matteo Luperto e Matteo Pirotta per aver preparato il seguente materiale a supporto del laboratorio del 2/12:

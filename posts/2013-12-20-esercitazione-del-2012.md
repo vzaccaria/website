@@ -3,7 +3,7 @@ title: laboratorio del 16/12
 date: 2013-12-20 09:35:55 
 layout: post
 category : infob 
-tags : [  ] 
+tags :  [ "esercizi", "funzioni in matlab" ] 
 ---
 
 

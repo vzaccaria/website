@@ -14,26 +14,45 @@ block content
 				div(elem='value') Vittorio Zaccaria
 			div(elem='detail')
 				div(elem='key') Ricevimento 
-				div(elem='value') Martedì dalle 14:30 alle 16:30 
+				div(elem='value') Martedì dalle 14:30 alle 16:30 (su appuntamento)
 			div(elem='detail')
 				div(elem='key') Ufficio
 				div(elem='value') Piazza Leonardo da Vinci 32 - 20133 Milano
+			div(elem='detail')
+				div(elem='key') Orario lezioni
+				div(elem='value') Martedí dalle 14:30 alle 16:00 (aula CT41), Venerdí dalle 8:50 alle 11:20 (Aula L01)
+			div(elem='detail')
+				div(elem='key') Sezione
+				div(elem='value') Cognomi: F - Ma (soggetto a cambiamenti)
+
+
 		div(block='lecture-messages') 
 			div(elem='title') Avvisi importanti
-			div(block='messages')
+			div(elem='messages')
 
-				div(block='message')
-					div(elem='date') 27 Agosto 2014
+				div(elem='message')
+					div(elem='date') 24 Ottobre 2014
 					div(elem='text')
 						:markdown
-							Gli esami orali dell'appello del 1 Settembre 2014 si terranno **il giorno stesso**
-							contestualmente alla correzione e valutazione del compito. 
+							Recupero ore perse per sciopero: 
 
-				div(block='message')
-					div(elem='date') 2 Luglio 2014
+							* Martedi 28 Ottobre: la lezione in CT41 inizierà alle 13:30 invece che alle 14:30
+							* Martedi 4 Novembre: la lezione in CT41 inizierà alle 13:30 invece che alle 14:30
+							* Martedi 18 Novembre: la lezione in CT41 inizierà alle 13:30 invece che alle 14:30
+
+				div(elem='message')
+					div(elem='date') 21 Ottobre 2014
 					div(elem='text')
 						:markdown
-							Le soluzioni del compito dell'appello sono disponibili a [questo indirizzo](#{baseUrl}/infob/2014/07/02/soluzioni-esame-appello-estivo-2014.html)
+							A causa dello sciopero generale, la lezione di venerdi 24 Ottobre 2014 è sospesa. 
+							Le tre ore verranno recuperate in data da comunicarsi.
+
+
+					div(elem='date') 13 Ottobre 2014
+					div(elem='text')
+						:markdown
+							Informazioni [sull'organizzazione dei laboratori](infob/2014/10/13/organizzazione-laboratori.html).
+
 
 
 
@@ -45,7 +64,16 @@ block content
 
 			#my-calendar(elem='calendar', calendar, start-month='September 2014', number-of-months='6', url="#{baseUrl}/data/index.json")
 
-
+		div.only-desktop(block='lecture-material', ng-controller='pageController')
+			div(elem='title') Altro materiale ed esercizi
+			table(ng-table="tableParams", class="ui segment small table", block='table')
+				tr(ng-repeat="tema in $data", elem="row")
+					td(elem="cell_title", data-title="'Title'") 
+						a(ng-href='{{tema.link}}') {{ tema.title}}
+					td(elem="cell_date", data-title="'Date'") 	{{ tema.date | date: 'mediumDate' }}
+					td(elem="cell_tags", data-title="'Tags'") 	
+						span(elem="cell_tag", ng-repeat="t in tema.tags") {{ t }}
+		div(block='well')
 		script
 			:coffee 
 				angular.element(document).ready -> 

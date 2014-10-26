@@ -3,7 +3,7 @@ title: esercitazione del 16/1
 date: 2014-01-22 07:55:49 
 layout: post
 category : infob 
-tags : [  ] 
+tags :  [ "esercizi", "funzioni in matlab" ] 
 ---
 
 

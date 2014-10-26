@@ -4,7 +4,7 @@ date: 2013-11-19 11:07:35
 
 layout: post
 category : infob 
-tags : ["lezione", "esame"] 
+tags : ["Informazioni"] 
 ---
 
 Eccoci giunti alla vigilia della prova in itinere. 

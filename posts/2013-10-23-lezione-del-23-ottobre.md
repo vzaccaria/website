@@ -270,11 +270,6 @@ per poi copiarlo nella posizione desiderata, ad esempio sesto esame sostenuto de
 
     studenti_di_primo_livello[20].esami_sostenuti[5] = e;
 
-<div class="iframe-wrapper"> 
-    <iframe id="fs-survey-iframe" class="iframe-content" src="http://fluidsurveys.com/surveys/vittorio-HFF/lezione-del-23-ottobre/" scrolling="no" frameborder="0" >.
-    </iframe>
-</div>
-
 
 
 

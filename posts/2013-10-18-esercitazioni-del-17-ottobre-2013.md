@@ -4,7 +4,7 @@ date: 2013-10-18 20:51:59
 
 layout: post
 category : infob 
-tags : ["esercizio"] 
+tags : ["esercizio", "fattoriale in C"] 
 ---
 
 Ecco gli esercizi presentati da Luigi Malagò ieri a esercitazione.

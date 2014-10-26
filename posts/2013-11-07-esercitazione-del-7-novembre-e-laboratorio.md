@@ -4,7 +4,7 @@ date: 2013-11-07 11:41:25
 
 layout: post
 category : infob 
-tags : ["lezione"] 
+tags : ["esercizio", "tabelle verità", "strutture dati in C"] 
 ---
 
 # Materiale laboratorio.

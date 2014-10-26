@@ -13,6 +13,16 @@ This directory holds my website. There are basically two main targets for gulp.
 
    `cult deploy`
 
+# Watch out for MathJax and Markdown 
+
+For inline eqs, use \\(  \\) around the eq.
+For display eqs:
+
+* use $$ and $$ around the eq
+* escape CRs \\ -> \\\\ 
+* escape     \{ -> \\{
+
+
 # Things to do
 
 1. After setting up gulp in this directory, remember to patch:

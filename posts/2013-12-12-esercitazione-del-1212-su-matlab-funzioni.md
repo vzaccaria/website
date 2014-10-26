@@ -3,7 +3,7 @@ title: esercitazione del 12/12 su matlab, funzioni
 date: 2013-12-12 08:20:16 
 layout: post
 category : infob 
-tags : [ "matlab", "funzioni" ] 
+tags :  [ "esercizi", "funzioni in matlab" ] 
 ---
 
 

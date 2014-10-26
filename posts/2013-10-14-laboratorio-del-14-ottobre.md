@@ -4,7 +4,7 @@ date: 2013-10-14 19:47:44
 
 layout: post
 category : infob 
-tags : ["laboratorio", "laboratori", "esercizi", "esercizio"] 
+tags : ["esercizi", "if-then-else", "while"] 
 ---
 
 

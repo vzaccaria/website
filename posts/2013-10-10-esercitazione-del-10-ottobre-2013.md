@@ -4,7 +4,7 @@ date: 2013-10-10 13:09:22
 
 layout: post
 category : infob 
-tags : ["esercitazione", "linguaggio C"] 
+tags : ["esercizi", "algoritmi in C"] 
 ---
 
 ## Calcolo del resto

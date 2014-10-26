@@ -1,4 +1,4 @@
-
+debug = require('debug')('gulp-main')
 { client-html, client-less, client-ls, client-brfy-roots, directives, other-deps } = require('./config')
 
 { vendor-js, vendor-css, , data-to-be-copied } = require('./config')
@@ -19,15 +19,7 @@ files-to-watch = client-ls ++ client-less ++ client-html ++ directives ++ other-
 for k,v of layout 
     files-to-watch.push(v)
 
-# console.log files-to-watch
 
-force-file-reload = [
-    "#destination/**/*.html"
-    "#destination/**/*.css"
-    "#destination/**/*.js"
-    "#destination/**/*.png"
-    "#destination/**/*.jpg"
-    ]
 
 require! 'gulp'
 jade       = require 'gulp-jade'
@@ -56,7 +48,7 @@ EXPRESS_PORT       = 4000;
 EXPRESS_ROOT       = '.';
 LIVERELOAD_PORT    = 35729;
 LIVERELOAD_LATENCY = 500;
-LIVERELOAD_ENABLE  = false
+LIVERELOAD_ENABLE  = true
 
 startExpress = ->
   express = require('express');
@@ -67,19 +59,22 @@ startExpress = ->
   console.log "Express started at: #{EXPRESS_PORT}"
   console.log "Added connect-livereload: " if LIVERELOAD_ENABLE
 
+LIVERELOAD_PORT = 35729;
+
+assets = "./assets/"
+
 var lr
-
 start-livereload = ->
-  lr := require('tiny-lr')()
-  lr.listen(LIVERELOAD_PORT)
+   lr := require('tiny-lr')()
+   lr.listen(LIVERELOAD_PORT)
 
-
-notifyLR = (event) ->
-  fileName = require('path').relative(EXPRESS_ROOT, event.path);
-  lr.changed body: { files: [fileName] }
-
-notifyLivereload = (event) ->
-    set-timeout (-> notifyLR(event)), LIVERELOAD_LATENCY             
+notifyChange = (path, cb) ->
+  fileName = require('path').relative(assets, path)
+  debug("Notifying Livereload for a change to #fileName")
+  reset = ->
+     lr.changed body: { files: [fileName] }
+     cb()
+  set-timeout reset, 1
 
 gulp.task 'build-html', [\build-post_containers \build-containers ], ->
     gulp.src client-html
@@ -178,11 +173,25 @@ gulp.task 'js-build-clean', ->
     gulp.src "#destination/js/build", {read: false}
         .pipe clean()
 
+gulp.task 'build-and-reload-css', ['build-css'], (done) ->
+    notifyChange("#destination/css/client.css", done)
+
+gulp.task 'build-and-reload-html', ['build-html'], (done) ->
+    notifyChange("#destination/index.html", done)
+
+gulp.task 'build-and-reload-js', ['build-client-js'], (done) ->
+    notifyChange("#destination/js/client.js", done)
+
+
 gulp.task 'watch-build', ->
   startExpress();
-  startLivereload() if LIVERELOAD_ENABLE
-  gulp.watch(force-file-reload, notifyLivereload) if LIVERELOAD_ENABLE
-  gulp.watch(files-to-watch, ["default"])
+  if LIVERELOAD_ENABLE
+      startLivereload() 
+  gulp.watch("#assets/less/*.less" , ['build-and-reload-css'])
+  gulp.watch("#assets/*.jade"      , ['build-and-reload-html'])
+  gulp.watch("posts/*.md"      , ['build-and-reload-html'])
+  gulp.watch("#assets/js/*.*"      , ['build-and-reload-js'])
+
 
 
 fs = require('fs')

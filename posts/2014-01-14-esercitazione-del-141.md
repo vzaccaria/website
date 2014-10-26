@@ -3,7 +3,7 @@ title: esercitazione del 9/1 e laboratorio del 13/1
 date: 2014-01-14 10:33:45 
 layout: post
 category : infob 
-tags : [ "esercitazione", "laboratorio"  ] 
+tags :  [ "esercizi", "funzioni in matlab" ] 
 ---
 
 

@@ -3,7 +3,7 @@ title: esercitazione del 31/1
 date: 2014-01-31 04:40:49 
 layout: post
 category : infob 
-tags : [ 'matlab', 'memoria', 'cache', 'virtuale' ] 
+tags : [ 'esercizi', matlab', 'memoria', 'cache', 'virtuale' ] 
 ---
 
 
