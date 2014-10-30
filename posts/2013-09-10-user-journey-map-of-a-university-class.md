@@ -6,7 +6,6 @@ layout: post
 category : blog 
 tags : ["design", "ux", "web", "elearning"] 
 description : Recently, I've been delving more and more into User Experience design, and I thought that my basic computer science class would be an awesome starting point to learn how to apply UX principles to a practical case.
-og_image :
 ---
 
 

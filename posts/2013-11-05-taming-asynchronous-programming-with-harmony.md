@@ -240,7 +240,6 @@ Given the deferred object `o`, the following methods apply; remember that they r
 
 MIT
 
----
  
 [^1]: The `using` clause extends the scope within which **Chained** looks for functions to be chained.
 

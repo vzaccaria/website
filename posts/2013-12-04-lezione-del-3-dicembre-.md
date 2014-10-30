@@ -46,7 +46,6 @@ Quindi, eccovi alcuni esempi di costrutti di controllo Matlab simili a quelli vi
     end
 
 
----
 
 Ecco alcuni esempi di valutazione di condizioni booleane in matlab:
 

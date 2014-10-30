@@ -17,7 +17,7 @@ In this short blog post, I'll guide you through some very simple examples showin
 Originally I struggled a lot in putting up a working example, so I hope this could be of help to anyone of you starting out on this. 
 
 Pre-requirements
-----------------
+==============
 
 Before we start, you should have GHC (Haskell's compiler) and Cabal (Haskell's package manager) installed. This usually depends on your OS.
 
@@ -27,7 +27,7 @@ Then you should install `template-haskell` with Cabal:
 
 
 Initial example
-----------------
+==============
 
 Let's define a module with a function that computes the symbolic power of an expression whose **value is known only when the program is run**. The power exponent is, instead, known at compile-time [^1].
 
@@ -77,7 +77,7 @@ The second quoted value `[| x |]` means that the AST to be passed to the `expand
 should be the formal parameter `x` of the closure we are building. Scoping works just as we expect.
 
 Using the function generator
-----------------------------
+==============
 
 To use `mk_power` and generate a program at *compile-time*, we have to 
 write another module (due to the 'limitations' of the current implementation of template Haskell). This will be our `main.hs` program. It will use `mk_power` to instantiate a specialized power function:
@@ -108,7 +108,7 @@ and use it as a normal power function.
 
 
 Building and running the program
-----------------------------
+==============
 
 If you build the program: 
 
@@ -125,7 +125,7 @@ You get:
 which is the Haskell code for the generated function.
 
 Conclusions
------------
+===========
 
 Template Haskell opens a whole new world for the creation of embedded DSLs. In this example, we could have optimized `(x_0 GHC.Num.* 1)` to `x_0` programmatically but much more complex DSLs could apply domain specific optimizations to enhance or adapt the code at run-time. 
 

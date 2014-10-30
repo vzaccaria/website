@@ -1,5 +1,5 @@
 ---
-title: Raccolta temi d'esame del corso di Informatica B
+title: Raccolta temi esame del corso di Informatica B
 date: 2013-10-24 20:21:03
 
 layout: post

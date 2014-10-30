@@ -66,7 +66,7 @@ because each of the two filters delays the input by one.
 How can we achieve this by manipulating the symbolic representation of the filter in Haskell? Let's see.
 
 Constant propagation
---------------------
+====================
 
 First of all, we need to propagate away trivial constants such as multiplication by 0 and 1 and additions with 0.
 
@@ -173,7 +173,8 @@ Which gives as result:
 </a>
 
 Domain specific optimization
--------------------------
+====================
+
 
 To simplify further, we have to apply a domain specific optimization; in particular, we are going to look for a concatenation of delay operators `!!`, so that:
 
@@ -280,7 +281,7 @@ I.e., the input signal delayed by two.
 </a>
 
 
---- 
+
 
 [^1]: with some sugar to make it more digestible. 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduction to the BEM methodology (slides)
+title: Introduction to the BEM methodology - slides
 date: 2014-09-18 12:28:34
 
 layout: post

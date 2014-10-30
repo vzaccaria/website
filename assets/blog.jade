@@ -7,25 +7,12 @@ block content
 	div(block='posts')
 		each p in filteredPosts 
 			a(block='post-preview', href='#{p.link}', style="cursor: pointer")
-				//- img(elem='image', src="#{p.og_image}")
+
 				div(elem='desc-column')
 					div(elem='title') #{p.title}
 					div(elem='subtitle') 
-
 						div(elem='date') 
-							//- i.fa.fa-calendar-o 
 							div(elem='date-value') #{p.formattedDate}
-
-
-						//- div(elem='category') 
-						//- 	i.fa.fa-flag-o 
-						//- 	div(elem='category-value') #{p.category}
-
-						//- div(block='tags') 
-						//- 	i.fa.fa-tags
-						//- 	each t in p.tags
-						//- 		div(elem='tag') #{t}
-
 					div(elem='description')
 						div(elem='description-text') #{p.description}
 
@@ -38,4 +25,3 @@ block content
 
 
 
-				//- .posts_container__post(onclick="location.href='#{p.link}'", style="cursor: pointer")

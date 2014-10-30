@@ -186,7 +186,6 @@ Notiamo che non arriveremo mai ad una rappresentazione esatta del numero. Esso s
 
     001100110011001100110011..
 
----
 
 Ecco le ancora più agognate soluzioni del secondo tema d'esame:
 

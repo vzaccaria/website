@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'informatica
+title: Introduzione al corso
 date: 2014-10-07 18:07:08
 
 layout: post

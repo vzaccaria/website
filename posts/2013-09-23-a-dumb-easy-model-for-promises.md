@@ -5,7 +5,7 @@ date: 2013-09-23 16:43:56
 layout: post
 category : blog 
 tags : ["promises", "concurrent", "asynchronous", "javascript"] 
-description : Update — Promises are significantly taking ground as a programming construct for asynchronous systems such as web applications. In this post I'll describe how Petri Nets can be used to efficiently model them.
+description : Update - Promises are significantly taking ground as a programming construct for asynchronous systems such as web applications. In this post I'll describe how Petri Nets can be used to efficiently model them.
 og_image : deposit/returned_promise1.png
 ---
 
@@ -78,6 +78,5 @@ You can download the visual cheat sheet for Petri Nets for promises [from this a
 
 * T. Murata — Petri Nets: Properties, Analysis and Applications - 1989, [Available at this address](http://embedded.eecs.berkeley.edu/Respep/Research/hsc/class.F03/ee249/discussionpapers/PetriNets.pdf).
 
----
  
 [^1]: We are not going to deal with how this object is generated. We assume that some computation has started and an object representing its future value has been created.  
