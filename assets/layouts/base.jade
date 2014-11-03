@@ -18,7 +18,6 @@ html
 		meta(name="keywords", content="")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui")
 		link(rel="stylesheet", href="#{baseUrl}/css/client.css", type="text/css")
-		link(href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
 		script(type="text/javascript", src="#{baseUrl}/js/client.js")
 
 	body(style='opacity: 0', ng-app="application")
@@ -37,6 +36,7 @@ html
 					+sidebar__link_item('fa-graduation-cap' , 'Teaching' , baseUrl + "/teaching.html")
 					+sidebar__link_item('fa-user'           , 'CV'       , "http://www.vittoriozaccaria.net/deposit/cv.pdf")
 					+sidebar__link_item('fa-youtube-play'   , 'Videos'   , baseUrl + "/videos.html")
+					+sidebar__link_item('fa-map-marker'     , 'Address'  , baseUrl + "/address.html")
 
 				.sidebar__bottom 
 					.sidebar__bottom__button(onclick="location.href='http://www.linkedin.com/in/vzaccaria'", style="cursor: pointer")
@@ -60,7 +60,5 @@ html
 				window.dynCss.api.setBreakpoints([481],'@win-width')
 				window.dynCss.api.initToggle('showMenu', 0, 240)
 
-		script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js')
-		script(src='//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG')
 		script.
 			hljs.initHighlightingOnLoad(); 

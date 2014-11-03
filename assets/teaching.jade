@@ -69,13 +69,10 @@ block content
 			table(ng-table="tableParams", class="ui segment small table", block='table')
 				tr(ng-repeat="tema in $data", elem="row")
 					td(elem="cell_title", data-title="'Title'") 
-						a(ng-href='{{tema.link}}') {{ tema.title}}
+						a(ng-href='{{tema.link}}') {{ tema.title }}
 					td(elem="cell_date", data-title="'Date'") 	{{ tema.date | date: 'mediumDate' }}
 					td(elem="cell_tags", data-title="'Tags'") 	
 						span(elem="cell_tag", ng-repeat="t in tema.tags") {{ t }}
 		div(block='well')
 		script
 			:coffee 
-				angular.element(document).ready -> 
-					$$('#my-calendar').filter = (arg) ->
-						arg.category == 'infob'

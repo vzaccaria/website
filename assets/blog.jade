@@ -5,7 +5,7 @@ block append title
 
 block content
 	div(block='posts')
-		each p in filteredPosts 
+		each p in data 
 			a(block='post-preview', href='#{p.link}', style="cursor: pointer")
 
 				div(elem='desc-column')

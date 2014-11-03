@@ -1,28 +1,37 @@
 
-{ directive, img, div, i, span } = require('./easyDirective.ls')
-_                                = require('lodash')
-moment                           = require('moment')
+{ directive }        = require('./easyDirective.ls')
+{ render, div, raw } = require('teacup')
+_                    = require('lodash')
+moment               = require('moment')
+debug                = require('debug')('calendar')
+_s                   = require('underscore.string')
 
 directive "calendar", ->
+    debug("Creating calendar..")
 
     @import '$http'
-    @byval \startMonth, \numberOfMonths, \format, \url
+    @byval \startMonth, \numberOfMonths, \format, \url 
 
+    tooltip = render ->
+        div '.calendar__tooltip', { ng-show: 'day.tooltipVisible' }, -> 
+            div '.calendar__tooltip__title', '{{day.title}}'
+
+    console.log JSON.stringify(tooltip)
 
     @template ->
-        div '.calendar'
-        div '.calendar__month', ng-repeat: "month in months", ->
-            div '.calendar__month_name', '{{month.name}}'
-            div '.calendar__day', {
-                        ng-repeat     : "day in month.days",
-                        ng-class      : "day.type",
-                        ng-click      : "gotoDay(day)",
-                        ng-mouseenter : 'showTooltip(day)',
-                        ng-mouseleave : 'hideTooltip(day)',
-                        style         : "{{day.style}}" 
-                        } , '{{day.number}}', ->
-                div '.calendar__tooltip', ng-show: 'day.tooltipVisible', ->
-                    div '.calendar__tooltip__title', '{{day.title}}'
+        div '.calendar', ->
+            div '.calendar__month', ng-repeat: "month in months", ->
+                div '.calendar__month_name', '{{month.name}}'
+                div '.calendar__day', {
+                            ng-repeat     : "day in month.days",
+                            ng-class      : "day.type",
+                            ng-click      : "gotoDay(day)",
+                            ng-mouseenter : 'showTooltip(day)',
+                            ng-mouseleave : 'hideTooltip(day)',
+                            style         : "{{day.style}}" 
+                            }, -> 
+                                raw("{{day.number}} #tooltip")
+                    
 
     @create (elem, attr) ->
 
@@ -33,14 +42,16 @@ directive "calendar", ->
             cd.day() == 0
 
         @showTooltip = (day) ~>
-            day.tooltipVisible = true if day.link?
+            if day.link?
+                day.tooltipVisible = true 
+
 
         @hideTooltip = (day) ~>
             day.tooltipVisible = false
 
         @loadData = ~>
-            @$http({method: 'GET', url: @url }).success (d) ~>
-                @data = _.indexBy d, ->
+            @['$http']({method: 'GET', url: @url }).success (d) ~>
+                @data = _.indexBy d, ~>
                     @getUniformDate(moment(it.date))
 
                 @updateCalendar();
@@ -50,6 +61,9 @@ directive "calendar", ->
 
         @getUniformDate = (d) ~>  
             return d.format('DD-MM-YYYY');
+
+        @filter = (arg) ~>
+            arg.category == 'infob'
 
 
         @getAdditionalInfo = (cd) ~>
@@ -93,7 +107,7 @@ directive "calendar", ->
                         dd.link  = info.link
                         dd.title = info.title
                         dd.style = 'cursor: pointer'
-                        dd.type  = [ info.category ] ++ info.tags.map -> "calendar__tag_#it"
+                        dd.type  = [ info.category ] ++ info.tags.map -> "calendar__tag_#{_s.underscored(it)}"
 
                     today = @getUniformDate(moment())        
                     this_day = @getUniformDate(cd)
@@ -102,9 +116,11 @@ directive "calendar", ->
                     dd.type = ['calendar__day_working'] ++ dd.type if not (cd.day() == 0 || cd.day() == 6)
                     days.push(dd)
                     cd.add(1, 'day')
-                @months.push({name: name, days: days})
+                @months.push({name: month-name, days: days})
                 cm.add(1, 'month')
 
+        debug "Current scope"
+        debug @
 
         group =  ['startMonth', 'numberOfMonths', 'data', 'filter']
         @$watchCollection(group, @updateCalendar)
