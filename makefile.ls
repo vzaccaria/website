@@ -89,6 +89,12 @@ parse ->
             ]
 
 
+    @collect "deploy", -> 
+        @command-seq -> [
+            @make "all"
+            @cmd "blog-ftp-cli #name -r v2"
+            ]
+
 
     @collect "clean", -> [
         @remove-all-targets()
