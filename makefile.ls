@@ -64,7 +64,6 @@ parse ->
                                 @browserify s("/js/client.ls"), s("/js/*.{ls,js}")
                             ]
                 ]
-
         
 
         @collect "build-posts", -> [    
@@ -79,6 +78,7 @@ parse ->
             @cmd "blog-cli json2json  ./#name/data/posts > ./#name/data/index.json"
             @cmd "blog-cli renderjson -f  ./#name/data/projects.json -t ./assets/projects.jade -c ./site.json > ./#name/projects.html"
             @cmd "json2html-biblio-cli -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./#name/research.html"
+            @cmd "sitemap-cli generate -p http://www.vittoriozaccaria.net/v2 #name > #name/sitemap.xml"
             ]
 
         
@@ -92,6 +92,7 @@ parse ->
 
     @collect "clean", -> [
         @remove-all-targets()
+        @cmd "rm -rf #name"
     ]
 
 
