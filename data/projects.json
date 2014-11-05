@@ -3,21 +3,21 @@
 	{
 		"name": "Dyn-CSS",
 		"description": "A CSS extension to dynamically evaluate and modify element properties",
-		"image": "/v2/img/dyn-css-image.jpg",
+		"image": "img/dyn-css-image.jpg",
 		"link": "http://www.vittoriozaccaria.net/dyn-css/"
 	},
 
 	{
 		"name": "Sweet Angle",
 		"description": "An easy DSL for Angularjs directives",
-		"image": "/v2/img/sweet-angle-image.jpg",
+		"image": "img/sweet-angle-image.jpg",
 		"link": "http://www.vittoriozaccaria.net/sweet-angle/"
 	},
 
 	{
 		"name": "Chained",
 		"description": "A library for easier function chaining in Javascript",
-		"image": "/v2/img/chained-image.jpg",
+		"image": "img/chained-image.jpg",
 		"link": "http://www.vittoriozaccaria.net/chained/"
 	},
 
@@ -25,14 +25,14 @@
 	{
 		"name": "Fluent FSM",
 		"description": "The ultimate finite state machine library for Nodejs",
-		"image": "/v2/img/fsm-express-project-image.jpg",
+		"image": "img/fsm-express-project-image.jpg",
 		"link": "http://www.vittoriozaccaria.net/fluent-fsm/"
 	},
 
 	{
 		"name": "Web Make",
 		"description": "Makefile for web apps",
-		"image": "/v2/img/webmake-image.jpg",
+		"image": "img/webmake-image.jpg",
 		"link": "http://www.vittoriozaccaria.net/wmake"
 	}
 

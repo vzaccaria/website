@@ -1,7 +1,6 @@
 
 
-custom-debug = require('./debug.ls')
-debug = custom-debug.get-debug-msg 'infoweb-easy-directive'
+debug = require('debug')('easy-directive')
 teacup = require 'teacup'
 _      = require 'underscore'
 

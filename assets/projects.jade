@@ -5,7 +5,7 @@ block append title
 
 mixin project(name, description, image, link)
 	div(block='project', onclick="location.href='#{link}'", style="cursor: pointer") 
-		img(elem='image', src=image)
+		img(elem='image', src="#{baseUrl}/#{image}")
 		div(elem='name')= name 
 		div(elem='description')= description
 

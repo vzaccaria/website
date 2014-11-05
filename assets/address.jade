@@ -1,0 +1,43 @@
+extends ./layouts/base 
+
+block append title 
+	title Vittorio Zaccaria — Address
+
+
+mixin detail(nome, valore) 
+	div(elem='detail')
+		div(elem='key')= nome 
+		div(elem='value')= valore
+
+
+block content
+	div(block='bio-container')
+		div(block='address')
+			div(elem='title') Address
+			div(block='contacts') 
+				+detail("Name", "Vittorio Zaccaria")
+				+detail("Ufficio", "Dept. of Electronics, Information and Bioeng. Politecnico di Milano")
+				+detail("Street", "Via Ponzio 34/5")
+				+detail("City", "Milano, 20133 (IT)")
+				+detail("Telephone", "+39 02 2399 3642")
+				+detail("Email", "vittorio.zaccaria@polimi.it")
+			div#map-canvas(elem='map')
+		script(src="https://maps.googleapis.com/maps/api/js")
+		script
+			:coffee 
+				angular.element(document).ready ->
+						map_canvas = document.getElementById('map-canvas')
+						center = new google.maps.LatLng(45.478828, 9.232421)
+						map_options = {
+								center: center,
+								zoom: 16,
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+						}
+						map      = new google.maps.Map(map_canvas, map_options)
+						marker 	 = new google.maps.Marker position: center, map: map, title: 'Vittorio Zaccaria\'s Office'
+						google.maps.event.addListener marker, 'click',	->
+							window.location.href = 'https://www.google.com/maps/place/Via+Ponzio,+34,+Politecnico+di+Milano+-+Campus+Leonardo'
+
+
+
+
