@@ -9,6 +9,8 @@ ast-src = "assets"
 s = -> "#ast-src#it"
 d = -> "#ast-dst#it"
 
+{baseUrl} = require('./site.json')
+
 
 parse ->
 
@@ -78,7 +80,7 @@ parse ->
             @cmd "blog-cli json2json  ./#name/data/posts > ./#name/data/index.json"
             @cmd "blog-cli renderjson -f  ./#name/data/projects.json -t ./assets/projects.jade -c ./site.json > ./#name/projects.html"
             @cmd "json2html-biblio-cli -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./#name/research.html"
-            @cmd "sitemap-cli generate -p http://www.vittoriozaccaria.net/v2 #name > #name/sitemap.xml"
+            @cmd "sitemap-cli generate -p http://www.vittoriozaccaria.net#baseUrl #name > #name/sitemap.xml"
             ]
 
         
@@ -92,7 +94,7 @@ parse ->
     @collect "deploy", -> 
         @command-seq -> [
             @make "all"
-            @cmd "blog-ftp-cli #name -r v2"
+            @cmd "blog-ftp-cli #name -r #baseUrl"
             ]
 
 

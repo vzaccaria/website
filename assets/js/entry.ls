@@ -93,7 +93,9 @@ application.controller 'pageController', ($scope, $filter, $http, ngTableParams)
 
              tags-to-look = [\esame \esami \soluzione \soluzioni \esercizio ]
 
-             $http({method: 'GET', url: '/v2/data/index.json' }).success ->
+             {baseUrl} = require('../../site.json')
+
+             $http({method: 'GET', url: "#baseUrl/data/index.json" }).success ->
                 orig-data   = _.filter it, -> 
                     (it.category == 'infob') && (_.intersection(tags-to-look, it.tags).length > 0)
 

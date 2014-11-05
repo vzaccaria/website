@@ -16,7 +16,7 @@ directive "calendar", ->
         div '.calendar__tooltip', { ng-show: 'day.tooltipVisible' }, -> 
             div '.calendar__tooltip__title', '{{day.title}}'
 
-    console.log JSON.stringify(tooltip)
+    # console.log JSON.stringify(tooltip)
 
     @template ->
         div '.calendar', ->

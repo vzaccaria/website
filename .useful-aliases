@@ -1,0 +1,11 @@
+
+echo "Setting up website aliases"
+echo ""
+echo "* lfind: local find in source files"
+echo ""
+
+alias lfind='ack \
+--ignore-dir=_site \
+--ignore-dir=bower_components \
+--ignore-dir=node_modules \
+--ignore-dir=.build'
