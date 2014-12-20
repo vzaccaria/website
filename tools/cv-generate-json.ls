@@ -52,6 +52,9 @@ patt =
   "iacomo"     : "Giacomo Marchiri"
   "augou"      : "Germain Haugou"
   "epley"      : "Thierry Lepley"
+  "ellasi"     : "Patrick Bellasi"
+  "assari"     : "Giuseppe Massari"
+  "adioli"     : "Davide Gadioli"
 
 print = console.log
 
