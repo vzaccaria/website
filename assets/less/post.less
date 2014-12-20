@@ -73,7 +73,8 @@
  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-.post_text > p code,
+
+.post_text p code,
 .post_text ul code,
 .post_text ol code
 {
@@ -88,15 +89,19 @@
 	padding-right: .4em;
 	.border-box();
 	.wrap-pre();
+
+	& pre {
+		background: #f8f8f8;	
+	}
 }
 
-.post_text pre {
+.post_text pre code {
 	border-radius    : 5px;
 	padding          : 1em;
 	background-color : white;
 	box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 	border: 1px solid #d8d8d8;
-	background: #fbfbfb;	
+	background: #f8f8f8;	
 }
 
 .post_text pre > code {
