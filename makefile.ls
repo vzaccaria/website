@@ -94,7 +94,19 @@ parse ->
     @collect "deploy", -> 
         @command-seq -> [
             @make "all"
-            @cmd "blog-ftp-cli #name -r #baseUrl"
+            @cmd "blog-ftp-cli -t -l #name -r #baseUrl"
+            ]
+
+    @collect "update", -> 
+        @command-seq -> [
+            @make "all"
+            @cmd "blog-ftp-cli -l #name -r #baseUrl"
+            ]
+
+    @collect "deploy-lftp", ->
+        @command-seq -> [
+            @make "all"
+            @cmd ""
             ]
 
 

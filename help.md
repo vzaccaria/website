@@ -6,9 +6,13 @@ This directory holds my website. You can use almost always the makefile provided
 
 Makefile targets:
 
-1. To deploy into the standard website host: 
+1. To deploy into the standard website host by overwriting all files: 
 
-   make deploy
+   make deploy 
+
+1. To just update, by sending only files that changed in size
+
+   make update
 
 2. To build the site
 
