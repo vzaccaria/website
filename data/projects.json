@@ -1,6 +1,13 @@
 [
 
 	{
+		"name": "exemd",
+		"description": "Execute and preprocess Markdown codeblocks",
+		"image": "img/exemd.jpg",
+		"link": "http://www.vittoriozaccaria.net/exemd/"
+	},
+
+	{
 		"name": "Dyn-CSS",
 		"description": "A CSS extension to dynamically evaluate and modify element properties",
 		"image": "img/dyn-css-image.jpg",
