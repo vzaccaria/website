@@ -7,7 +7,7 @@ category : infob
 tags : ["voti", "prova in itinere"] 
 ---
 
-La tabella seguente riporta i voti (tra 9 e 17) della prima prova in itinere, ordinati per matricola. Vi ricordo che:
+La tabella seguente riporta i voti (tra 9 e 17)[^1] della prima prova in itinere, ordinati per matricola. Vi ricordo che:
 
 * Non rispondo via mail a qualsiasi domanda sul compito. Se avete domande e volete vedere gli errori che avete fatto, chiedete un appuntamento e vi riceverò nel mio ufficio.
 
@@ -16,6 +16,7 @@ La tabella seguente riporta i voti (tra 9 e 17) della prima prova in itinere, or
 * Coloro i quali siano risultati sufficienti ma hanno degli obblighi formativi (OFA), devono assicurarsi di averli risolti entro il primo appello formale del corso (Febbraio), altrimenti perdono il voto delle prove in itinere.
 
 * I voti non possono essere congelati da un anno all'altro o da un appello all'altro.
+ 
 
 | Matricola   | Voto      |
 | :---------: | :-------: |
