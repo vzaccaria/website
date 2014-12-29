@@ -6,11 +6,7 @@ welcome = '''
 #     | |/ |/ /  __/ / /__/ /_/ / / / / / /  __/
 #     |__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/ 
 #                                               
-# This is my web-page. It was all designed and implemented by me. 
-# You are using dev tools so you might be interested in the details:
-# 
-# * CSS is custom and follows BEM naming conventions 
-# * It uses DynCSS for some easy page adaptation.
+# This is my web-page. It was all designed and implemented by myself. 
 '''
 
 #                     __                        
@@ -24,8 +20,8 @@ console.log welcome
 # window.dynCss.config.debug = true
 # window.dynCss.config.useRAF = true
 
-window.dynCss.lib.responsiveTranslateX = (v1, v2) ->
-    return window.dynCss.lib.selectFrom(["translateX(#{v1}px)", "translateX(#{v2}px)"])
+# window.dynCss.lib.responsiveTranslateX = (v1, v2) ->
+    # return window.dynCss.lib.selectFrom(["translateX(#{v1}px)", "translateX(#{v2}px)"])
 
 add-fast-click = ->
     FastClick.attach(document.body);

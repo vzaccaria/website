@@ -24,6 +24,19 @@
 	        box-sizing: border-box;
 }
 
+.on-mobile(@rules) {
+        @media (max-width: 960px) {
+                @rules();
+        }
+}
+
+.on-desktop(@rules) {
+        @media (min-width: 961px) {
+                @rules();
+        }
+}
+
+
 .nice-section-title() {
 	padding-top: 1em;
 	font-family: @display-family;
@@ -83,7 +96,7 @@
 }
 
 .center-within-container() {
-	-dyn-width: '@selectFrom([@win-width*0.9,800])';
+	width: 90%;
 	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
@@ -91,25 +104,45 @@
 
 
 .show-desktop-inline-block() {
-	-dyn-display: '@selectFrom(["none","inline-block"])';
+	.on-mobile({
+		display: none;
+		});
+	.on-desktop({
+		display: inline-block;
+		});
 }
 
 .show-desktop-block() {
-	-dyn-display: '@selectFrom(["none","block"])';
+	.on-mobile({
+		display: none;
+		});
+	.on-desktop({
+		display: block;
+		});
 }
 
 .show-mobile-inline-block() {
-	-dyn-display: '@selectFrom(["inline-block","none"])';
+	.on-mobile({
+		display: inline-block;
+		});
+	.on-desktop({
+		display: none;
+		});
 }
 
 .show-mobile-block() {
-	-dyn-display: '@selectFrom(["block","none"])';
+	.on-mobile({
+		display: block;
+		});
+	.on-desktop({
+		display: none;
+		});
 }
 
 .show-fluid-block() {
-	// -dyn-display: '@selectFrom(["block","inline-block"])';
 	display: inline-block;
 }
+
 
 @tv: 0em;
 @th: .4em;
@@ -127,3 +160,22 @@
 	line-height: 1.1em;
 	.smallcaps(white, 500);
 }
+
+.var-padding-top(@m   , @d) 	{.on-mobile({ padding-top   : @m}); .on-desktop({ padding-top   : @d}); }
+.var-margin-bottom(@m , @d) 	{.on-mobile({ margin-bottom : @m}); .on-desktop({ margin-bottom : @d}); }
+.var-margin-right(@m  , @d) 	{.on-mobile({ margin-right  : @m}); .on-desktop({ margin-right  : @d}); }
+.var-margin-left(@m   , @d) 	{.on-mobile({ margin-left   : @m}); .on-desktop({ margin-left   : @d}); }
+.var-margin(@m        , @d) 	{.on-mobile({ margin        : @m}); .on-desktop({ margin   : @d}); }
+.var-display(@m        , @d) 	{.on-mobile({ display        : @m}); .on-desktop({ display   : @d}); }
+.var-height(@m        , @d) 	{.on-mobile({ height        : @m}); .on-desktop({ height        : @d}); }
+.var-width(@m         , @d) 	{.on-mobile({ width         : @m}); .on-desktop({ width         : @d}); }
+.var-font-size(@m     , @d) 	{.on-mobile({ font-size     : @m}); .on-desktop({ font-size     : @d}); }
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@
 .post_container__post__title {
 	font-family    : @display-family;
 	font-weight    : 300;
-	-dyn-font-size : '@selectFrom(["1.7em" , "2.2em"])';
+	.var-font-size(1.7em, 2.2em);
 	border-bottom  : 1px fade(darken(@cloud, 50%), 20%) solid;
 	padding-bottom : .2em;
 }
@@ -105,7 +105,7 @@
 }
 
 .post_text pre > code {
-	font-size        : 18px;
+	// font-size        : 18px;
 	line-height      : 27px;
 	font-family      : @code-font-family;
 	.border-box();
@@ -174,6 +174,16 @@
 	// margin-left: 0;
 }
 
+.post_text blockquote {
+	background: darken(white, 5%);
+	margin: 0;
+	padding: 20px;
+	border-radius: 5px;
+	& p {
+		margin: 0;
+	}
+}
+
 .share_buttons__share_reddit, 
 .share_buttons__share_twitter, 
 .share_buttons {
@@ -191,14 +201,10 @@
 }
 
 
-// .post_text pre code {
-// 	color: @pumpkin;
-// }
-
 
 .post_text {
 	font-family: @font-family;
-	font-size: 1.2em;
+	.var-font-size(1rem, 1.2rem);
 	line-height: 1.6;
 	margin-top: 2em;
 	margin-bottom: 10em;

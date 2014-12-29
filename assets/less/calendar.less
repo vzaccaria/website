@@ -32,10 +32,12 @@
 
 .calendar__month {
 	width: (@cell_size + @cell_margin) * 7;
-	.show-fluid-block();
+	.on-mobile({display: block});
+	.on-desktop({display: inline-block;});
 	vertical-align: top;
-	-dyn-margin-right: '@selectFrom(["auto", "2%"])';
+	.var-margin-right(auto, 2%);
 	margin-left: auto;
+
 
 }
 
