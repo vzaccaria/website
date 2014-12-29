@@ -165,7 +165,12 @@
 
 	&__dot {
 		height: auto !important;
-		width: auto !important;
+		.on-mobile({
+			max-width: 100% !important;
+			});
+		.on-desktop({
+			width: auto !important;
+			});
 	}
 	box-shadow: none !important;
 	border: none !important;
