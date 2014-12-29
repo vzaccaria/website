@@ -1,22 +1,20 @@
 .posts {
 	.border-box();
 	display: block;
-	-dyn-padding-top: '@selectFrom(["0","3em"])';
+	.var-padding-top(0px, 3em);
 	.center-within-container();
+	.var-width(100%, 90%);
 }
 
-
-
 @title-subtitle-text-spacing: 10px;
-
 
 .post-preview {
 	.border-box();
 	.show-desktop-block();
-	-dyn-margin-bottom : '@selectFrom(["0em", "3em"])';
+	.var-margin-bottom(0em, 3em);
+	.var-height(75px, auto);
 	color              : inherit;
 	text-decoration    : none;
-	-dyn-height: '@selectFrom(["75px", "auto"])';
 }
 
 .post-preview__image {
@@ -35,7 +33,6 @@
 	.border-box();
 	display: inline-block;
 	height: auto;
-	// width: 85%;
 	display: inline-block;
 	background-color: white;
 	padding-left: 20px;
@@ -51,7 +48,6 @@
 	.smallcapfont(@display-family);
 	font-size: 2em;
 	border-bottom: @border;
-	// padding-bottom: .2em;
 	.smallcaps(black, 300);
 }
 
@@ -59,7 +55,7 @@
 	.show-desktop-block();
 	font-family: @font-family;
 	font-weight: 300;
-	-dyn-font-size   : '@selectFrom(["1em",".95em"])';
+	.var-font-size(1em, .95em);
 	line-height: 1.5em;
 	margin-top: @title-subtitle-text-spacing;
 }
@@ -68,8 +64,7 @@
 .post-preview__description {
 	.show-desktop-block();
 	font-family: @font-family;
-	-dyn-font-size   : '@selectFrom(["1em",".95em"])';
-	// font-weight: 300;
+	.var-font-size(1em, .95em);
 	line-height: 1.5em;
 	margin-top: @title-subtitle-text-spacing;
 }
@@ -80,12 +75,9 @@
 
 .post-preview__date {
 	display: inline-block;
-	// border-right   : 2px solid fade(@blue, 10%);
 	padding-right  : @margin;
 	.show-desktop-inline-block();
 }
-
-
 
 .post-preview__category {
 	.show-desktop-inline-block();
@@ -97,8 +89,6 @@
 .tags {
 	.show-desktop-inline-block();
 	padding-left: @margin;
-	// border-right   : 2px solid fade(@blue, 10%);
-	// padding-right  : @margin;
 }
 
 
@@ -107,7 +97,6 @@
 }
 
 .post-preview__date-value {
-	// margin-left: @margin;
 	display: inline-block;
 }
 
@@ -163,10 +152,6 @@
 		padding-bottom: @spacing;
 		.border-box();
 
-		margin-left: -20px;
-		margin-right: -20px;
-
-
 		padding-left: 20px;
 		padding-right: 20px;
 
@@ -185,26 +170,24 @@
 	}
 
 	&__small-date {
-		width               : 15%;
 		font-family         : @display-font;
-		-dyn-font-size      : '@selectFrom(["1.5em","1.1em"])';
+		font-size: .9em;
 		font-weight         : 500;
 		border-radius       : 5px;
 		color               : @pumpkin;
 		text-align          : left;
 		display             : inline-block;
+		display: none;
 		vertical-align: top;
 	}
 
 
 	&__small-description {
-		width          : 83%;
 		font-family    : @font-family;
-		-dyn-font-size : '@selectFrom([".9em","1.1em"])';
 		font-weight    : 300;
 		line-height    : 1.2em;
 		vertical-align : top;
-		display        : inline-block;
+		display        : block;
 		overflow: hidden;
 		.border-box();
 	}

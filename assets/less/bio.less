@@ -41,7 +41,12 @@
 	.border-box();
 	padding: @bio-padding;
 	display: inline-block;
-	-dyn-max-width: '@selectFrom(["100%", "@{bio-width}"])';
+	.on-desktop({
+		max-width: @bio-width;
+		});
+	.on-mobile({
+		max-width: 100%;
+		});
 	font-family: @font-family;
 }
 
@@ -77,7 +82,12 @@
 
 .career_size_small,
 .education_size_small {
-	-dyn-width: '@selectFrom(["99%", "49%"])';
+	.on-mobile({
+		width: 99%;
+		});
+	.on-desktop({
+		width: 49%;
+		});
 	padding-right: 1%;
 }
 

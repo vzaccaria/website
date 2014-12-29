@@ -18,11 +18,11 @@
 @project-desktop-width: (100% - 3*@project-desktop-margin - 1%)/3;
 
 .project {
-	display: inline-block;
+	.var-display(inline-block, inline-block);
 	.border-box();
 	.nice-card();
-	-dyn-width: '@selectFrom(["100%", "@{project-desktop-width}"])';
-	-dyn-margin-right: '@selectFrom(["0%", "@{project-desktop-margin}"])';
+	.var-width(320px, @project-desktop-width);
+	.var-margin-right(0%, @project-desktop-margin);
 	text-align: center;
 	padding: 1em;
 	margin-top: 1em;
@@ -32,6 +32,7 @@
 }
 
 .project__image {
+	.var-display(none, block);
 	width: 100%;
 	height: auto;
 	border: 1px #d8d8d8 solid;

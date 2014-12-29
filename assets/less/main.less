@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic);
-// @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 
 // http  : //flatuicolors.com/
@@ -22,63 +21,52 @@
 @code-font: @code-font-family;
 
 /* Absolute measures */
-@sidebar-width: 250;
+@sidebar-width: 250px;
 
-@desktop-content-width  : '(@win-width - @{sidebar-width})';
-@desktop-content-offset : '"@{desktop-sidebar-width}"';
-
-@desktop-sidebar-width  : @sidebar-width;
-@desktop-sidebar-offset : 0;
-
-@mobile-content-width   : '@win-width';
-@mobile-content-offset  : '@showMenu';
-
-@mobile-sidebar-width   : @sidebar-width;
-@mobile-sidebar-offset  : '0';
-
-
-
-body {
-	-dyn-opacity: '@selectFrom([1, 1])';
-	transition: opacity 300ms;
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 
 .site_wrapper {
-	// -dyn-width  : '@win-width';
-	// -dyn-height : '@win-height';
+	min-height: 100%;
 }
 
 
 .site_container {
 	.border-box();
-	.enable-hardware-acceleration();
 
-	-dyn-transform   : '@responsiveTranslateX(@{mobile-content-offset}, @{desktop-content-offset})';
-	-dyn-width       : '@selectFrom([@{mobile-content-width}, @{desktop-content-width} ])';
-	-dyn-min-height  : '@win-height';
-	height           : 100%;
+	.on-desktop({
+		padding-left: @sidebar-width;
+		});
+	.on-mobile({
+		});
+
 	background-color : white;
 
-	// -dyn-transition  : '"all 500ms"';
-	// transform     : @translate-zero;	
-
-	&:extend(.cf);
 }
 
-
-.sidebar {
-	-dyn-transform : '@responsiveTranslateX(@{mobile-sidebar-offset}, @{desktop-sidebar-offset})';
-	-dyn-width     : '@selectFrom([@{mobile-sidebar-width}, @{desktop-sidebar-width}])';
-	-dyn-height    : '@win-height';
-
+.sticky() {
 	position         : fixed;
 	top              : 0px;
 	margin           : 0px 0px;
-	background-color : @blue;
+}
 
-	.enable-hardware-acceleration();
-
+.sidebar {
     .border-box();
+	background-color : @blue;
+	height: 100%;
+
+	.on-desktop({
+	    width: @sidebar-width;
+		.sticky();
+		});
+
+	.on-mobile({
+		width: 100%;
+		});
+
 	&:extend(.cf);
 }
 
@@ -102,15 +90,4 @@ body {
 
 @import '../../bower_components/ng-table/ng-table.less';
 
-// .post_list {
-// 	position       : static;
-// 	width          : @post-list-width;
-// 	display        : inline-block;
-// 	overflow       : scroll;
-// 	vertical-align : top;
-// 	-dyn-height    : '@win-height';
-	
-// 	&:extend(.cf);
-
-// }
 

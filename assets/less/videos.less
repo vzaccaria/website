@@ -39,17 +39,15 @@
 .video__iframe {
 	.border-box();
 	display: inline-block;
-	-dyn-width: '@selectFrom(["@{mmw}", "@{mw}"])';
-	-dyn-height: '@selectFrom(["@{mmh}", "@{mh}"])';
-	// width: 640px * @ratio;
-	// height: 390px * @ratio;
+	.var-width(@mmw, @mw);
+	.var-height(@mmh, @mh);
 }
 
 .video__data {
 	display: inline-block;
 	.border-box();
-	-dyn-width: '@selectFrom(["100%", "30%"])';
-	-dyn-margin-left: '@selectFrom(["0em", "1em"])';
+	.var-width(100%, 30%);
+	.var-margin-left(0em, 1em);
 	vertical-align: top;
 }
 

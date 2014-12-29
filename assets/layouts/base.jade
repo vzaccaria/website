@@ -21,7 +21,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 		link(rel="stylesheet", href="#{baseUrl}/css/client.css", type="text/css")
 		script(type="text/javascript", src="#{baseUrl}/js/client.js")
 
-	body(style='opacity: 0', ng-app="application")
+	body(ng-app="application")
 		.site_wrapper
 
 			.sidebar 
@@ -46,20 +46,9 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 						i.fa.fa-twitter-square
 					.sidebar__bottom__button(onclick="location.href='https://plus.google.com/116322227495215922957/about'", style="cursor: pointer")
 						i.fa.fa-google-plus-square
-
-			.sidebar__go_button(onclick="window.dynCss.api.toggle('showMenu');", style="cursor: pointer") 
-				i.sidebar__go_button__text.fa.fa-navicon
-
+							
 			.site_container
 				append content 
-
-
-
-
-		script
-			:coffee
-				window.dynCss.api.setBreakpoints([961],'@win-width')
-				window.dynCss.api.initToggle('showMenu', 0, 240)
 
 		script.
 			hljs.initHighlightingOnLoad(); 
