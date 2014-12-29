@@ -68,11 +68,12 @@ parse ->
                 ]
         
 
-        @collect "build-posts", -> [    
-                    @cmd "blog-cli md2json directory ./posts -d #name/data/posts -t ./assets/layouts/post.jade -c ./site.json"         
-                    ]
 
         ]
+
+    @collect "build-posts", -> [    
+                @cmd "blog-cli md2json directory ./posts -d #name/data/posts -t ./assets/layouts/post.jade -c ./site.json"         
+                ]
 
     @collect "derived", -> [
             @cmd "blog-cli json2html directory ./#name/data/posts -d ./#name"
@@ -87,9 +88,9 @@ parse ->
     @collect "all", ->
         @command-seq -> [
             @make "build"
+            @make "build-posts"
             @make "derived"
             ]
-
 
     @collect "deploy", -> 
         @command-seq -> [
