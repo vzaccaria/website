@@ -87,7 +87,7 @@
 
 	.on-mobile({
 		display: inline-block;
-		width: @link_item_width;
+		width: @link_item_width*0.9;
 		});
 
 	color            : @cloud;
@@ -110,7 +110,7 @@
 
 .sidebar__link_item__icon {
 	display        : inline-block;
-	font-size      : @icon-size;
+	.var-font-size(@icon-size*0.9, @icon-size);
 	min-width      : 1.2em;
 	padding-right  : 5%;
 	vertical-align : middle;
