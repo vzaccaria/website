@@ -16,7 +16,8 @@
     "debug": "^2.0.0",
     "jquery": "~2.1.1",
     "fastclick": "~1.0.3",
-    "shell-escape": "~0.1.0"
+    "shell-escape": "~0.1.0",
+    "brfs": "~1.2.0"
   },
   "devDependencies": {
     "connect-livereload": "^0.4.0",

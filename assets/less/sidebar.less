@@ -41,18 +41,10 @@
 
 .sidebar__picture {
 	.show-desktop-block();
-	.avatar(@picture-resize, @picture-margins, '../img/sidebar_picture.jpg');
+	.avatar-nourl(@picture-resize, @picture-margins);
 	.border-box();
 	&:extend(.cf);
 }
-
-.sidebar__picture__small {
-	.show-desktop-inline-block();
-	.avatar(@picture-resize/2, @picture-margins/2, '../img/sidebar_picture.jpg');
-	.border-box();
-	&:extend(.cf);
-}
-
 
 
 @link_item_padding: 0.45em;
