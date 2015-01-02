@@ -85,15 +85,4 @@ block content
 
 			#my-calendar(elem='calendar', calendar, start-month='September 2014', number-of-months='6', url="#{baseUrl}/data/index.json")
 
-		div.only-desktop(block='lecture-material', ng-controller='pageController')
-			div(elem='title') Altro materiale ed esercizi
-			table(ng-table="tableParams", class="ui segment small table", block='table')
-				tr(ng-repeat="tema in $data", elem="row")
-					td(elem="cell_title", data-title="'Title'") 
-						a(ng-href='{{tema.link}}') {{ tema.title }}
-					td(elem="cell_date", data-title="'Date'") 	{{ tema.date | date: 'mediumDate' }}
-					td(elem="cell_tags", data-title="'Tags'") 	
-						span(elem="cell_tag", ng-repeat="t in tema.tags") {{ t }}
-		div(block='well')
-		script
-			:coffee 
+
