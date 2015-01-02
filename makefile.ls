@@ -63,6 +63,7 @@ parse ->
 
                 @notify ~>
                     @dest d("/js/client.js"), ->
+                        @minifyjs ->
                             @concatjs -> [
                                 @copy ("./bower_components/angular/angular.min.js")
                                 @copy ("./bower_components/ng-table/ng-table.js")
