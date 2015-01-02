@@ -18,7 +18,7 @@ parse ->
         @compile-files( (-> "< #{it.orig-complete} ./node_modules/.bin/brfs - > #{it.build-target}"), ".js", g, deps)
 
     @add-plugin 'brfy', (g, deps) ->
-        @compile-files( (-> "browserify -t liveify #{it.orig-complete} -o #{it.build-target}"), ".js", g, deps)
+        @compile-files( (-> "browserify -t node-lessify -t liveify #{it.orig-complete} -o #{it.build-target}"), ".js", g, deps)
 
     @add-plugin 'jadeBeml',(g, deps) ->
         @compile-files( (-> "jade -O ./site.json -P -p #{it.orig-complete} < #{it.orig-complete} | beml-cli > #{it.build-target}"), ".html", g, deps )
@@ -30,12 +30,7 @@ parse ->
     @collect "build", -> [
 
         @collect "build-assets", -> [
-                @notify ~>
-                    @dest d("/css/client.css"), ->
-                            @concatcss -> [
-                                @less s("/less/main.less"), s("/less/*.less")
-                                @copy s("/css/*.css")
-                                ]
+
 
                 @notify ~>
                     @toDir d("/img"), { strip: s("/img") },  -> [
@@ -69,8 +64,8 @@ parse ->
                                 @copy ("./bower_components/ng-table/ng-table.js")
                                 @copy ("./bower_components/fastclick/lib/fastclick.js")
                                 @copy ("./assets/vendor/highlight.min.js")
-                                @brfy s("/js/client.ls"), s("/js/*.{ls,js}")
-                                @brfs s("/js/bundle.js")
+                                @brfy s("/js/client.ls"), s("/**/*.{ls,js,css,less}")
+                                @brfs s("/js/bundle.js"), s("/img/*.jpg") 
                             ]
                 ]
         
