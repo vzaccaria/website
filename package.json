@@ -16,7 +16,11 @@
     "debug": "^2.0.0",
     "jquery": "~2.1.1",
     "fastclick": "~1.0.3",
-    "shell-escape": "~0.1.0"
+    "shell-escape": "~0.1.0",
+    "brfs": "~1.2.0",
+    "lessify": "~0.5.0",
+    "cssify": "~0.6.0",
+    "node-lessify": "0.0.8"
   },
   "devDependencies": {
     "connect-livereload": "^0.4.0",

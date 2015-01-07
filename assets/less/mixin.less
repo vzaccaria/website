@@ -63,6 +63,19 @@
     color: @color;
 }
 
+.avatar-nourl(@picture-resize, @picture-margins) {
+	margin-top      : @picture-margins;
+	margin-bottom   : @picture-margins;
+	margin-left     : auto;
+	margin-right    : auto;
+
+	width           : @picture-resize;
+	height          : @picture-resize;
+	border-radius   : @picture-resize/2;
+
+	background-size : @picture-resize;	
+}
+
 .avatar(@picture-resize, @picture-margins, @url) {
 	margin-top      : @picture-margins;
 	margin-bottom   : @picture-margins;
