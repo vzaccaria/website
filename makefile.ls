@@ -63,7 +63,6 @@ parse ->
                                 @copy ("./bower_components/angular/angular.min.js")
                                 @copy ("./bower_components/ng-table/ng-table.js")
                                 @copy ("./bower_components/fastclick/lib/fastclick.js")
-                                @copy ("./assets/vendor/highlight.min.js")
                                 @brfy s("/js/client.ls"), s("/**/*.{ls,js,css,less}")
                                 @brfs s("/js/bundle.js"), s("/img/*.jpg") 
                             ]

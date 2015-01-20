@@ -11,10 +11,13 @@ Option `-r` Exposes the root (.) at localhost:4000
 # Watch out for MathJax and Markdown 
 
 For inline eqs, use \\(  \\) around the eq.
+
 For display eqs:
 
 * use $$ and $$ around the eq
 * escape CRs \\ -> \\\\ 
 * escape     \{ -> \\{
+
+Check for * in equation as well (use \times)
 
 
