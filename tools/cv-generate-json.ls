@@ -55,6 +55,9 @@ patt =
   "ellasi"     : "Patrick Bellasi"
   "assari"     : "Giuseppe Massari"
   "adioli"     : "Davide Gadioli"
+  "gosta"      : "Giovanni Agosta"
+  "andale"     : "Michele Scandale"
+  "ibutti"     : "Simone Libutti"
 
 print = console.log
 
