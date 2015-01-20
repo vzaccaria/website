@@ -13,21 +13,21 @@ directive "calendar", ->
     @byval \startMonth, \numberOfMonths, \format, \url 
 
     tooltip = render ->
-        div '.calendar__tooltip', { ng-show: 'day.tooltipVisible' }, -> 
+        div '.calendar__tooltip', { "ng-show": 'day.tooltipVisible' }, -> 
             div '.calendar__tooltip__title', '{{day.title}}'
 
     # console.log JSON.stringify(tooltip)
 
     @template ->
         div '.calendar', ->
-            div '.calendar__month', ng-repeat: "month in months", ->
+            div '.calendar__month', "ng-repeat": "month in months", ->
                 div '.calendar__month_name', '{{month.name}}'
                 div '.calendar__day', {
-                            ng-repeat     : "day in month.days",
-                            ng-class      : "day.type",
-                            ng-click      : "gotoDay(day)",
-                            ng-mouseenter : 'showTooltip(day)',
-                            ng-mouseleave : 'hideTooltip(day)',
+                            "ng-repeat"     : "day in month.days",
+                            "ng-class"      : "day.type",
+                            "ng-click"      : "gotoDay(day)",
+                            "ng-mouseenter" : 'showTooltip(day)',
+                            "ng-mouseleave" : 'hideTooltip(day)',
                             style         : "{{day.style}}" 
                             }, -> 
                                 raw("{{day.number}} #tooltip")
@@ -53,7 +53,7 @@ directive "calendar", ->
             @['$http']({method: 'GET', url: @url }).success (d) ~>
                 @data = _.indexBy d, ~>
                     @getUniformDate(moment(it.date))
-
+                debug "Data loaded - updating calendar"    
                 @updateCalendar();
 
         @gotoDay = (d) ~>
@@ -119,8 +119,7 @@ directive "calendar", ->
                 @months.push({name: month-name, days: days})
                 cm.add(1, 'month')
 
-        debug "Current scope"
-        debug @
+            debug @months
 
         group =  ['startMonth', 'numberOfMonths', 'data', 'filter']
         @$watchCollection(group, @updateCalendar)
