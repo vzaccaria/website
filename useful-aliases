@@ -1,0 +1,15 @@
+
+echo "Setting up website aliases"
+echo ""
+echo "* lfind:      	local find in source files"
+echo "* editassets:  	edit and reload on asset change"
+echo ""
+
+alias lfind='ack \
+--ignore-dir=_site \
+--ignore-dir=bower_components \
+--ignore-dir=node_modules \
+--ignore-dir=.build'
+
+alias editassets='./makefile.ls -- -w -r -t build &'
+

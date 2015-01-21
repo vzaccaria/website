@@ -1,5 +1,18 @@
+# Possible problems 
+
+If you get a `spawn EMFILE` error, increase open file limits:
+
+` > ulimit -n 10000 `
+
+# Aliases
+
+For common aliases: 
+
+` > source useful-aliases `
+
 # Shortcuts 
 
+    ** Remember to specify target with -t !!*
     ./makefile.ls -- -w -r -t build         # watch and recompile assets
     ./makefile.ls -- -w -r                  # watch and recompile everything
     ./makefile.ls                           # generate makefile
