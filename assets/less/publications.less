@@ -42,11 +42,19 @@
 	font-weight: 300;
 	line-height: @line-height;
 	font-size: 1.2em;
+	.on-mobile({
+		font-size: 0.8rem;
+		line-height: 1rem;
+		});
 }
 
 .publication__authors {
 	margin-top: 2em;
 	font-size: .8em;
+	.on-mobile({
+		font-size: 0.6rem;
+		line-height: 1rem;
+	});
 }
 
 .publication__authors__myname {
@@ -57,6 +65,9 @@
 .publication__authors__name {
 	display: inline-block;
 	margin-right: 1em;
+	.on-mobile({
+		margin-right: 0.6em;
+		});
 }
 
 .publication__authors__name {
@@ -65,6 +76,12 @@
 
 .publication__info {
 	font-size: 1em;
+}
+
+.publication__category {
+	.on-mobile({
+		display: none !important;
+		});
 }
 
 

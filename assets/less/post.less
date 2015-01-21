@@ -30,6 +30,9 @@
 	display: inline-block;
 	border-right   : 2px solid fade(@blue, 10%);
 	padding-right  : @margin;
+		.on-mobile({
+		font-size: 0.9rem;
+		});
 }
 
 .post_container__post__category {
@@ -58,6 +61,7 @@
 .post_container__post__date_value {
 	margin-left: @margin;
 	display: inline-block;
+
 }
 
 .post_container__post__category_value {
@@ -71,6 +75,18 @@
  white-space: -pre-wrap;      /* Opera 4-6 */
  white-space: -o-pre-wrap;    /* Opera 7 */
  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.post_text ul {
+	.on-mobile({
+		padding-left: 1rem;
+		});
+}
+
+.post_text ol {
+	.on-mobile({
+		padding-left: 1.5rem;
+		});
 }
 
 
@@ -184,6 +200,12 @@
 	}
 }
 
+.share_buttons__message {
+	display: inline-block;
+	.on-mobile({
+		display: none;
+		})
+}
 .share_buttons__share_reddit, 
 .share_buttons__share_twitter, 
 .share_buttons {

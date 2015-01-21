@@ -74,23 +74,23 @@ block content
 					.publication__info
 						case pb.type 
 							when "conference"
-								.publication__category--conference conference 
+								.publication__category.publication__category--conference conference 
 							when "journal"
-								.publication__category--journal journal 
+								.publication__category.publication__category--journal journal 
 							when "book"
-								.publication__category--book book 
+								.publication__category.publication__category--book book 
 							when "bookchapter" 
-								.publication__category--bookchapter book chapter
+								.publication__category.publication__category--bookchapter book chapter
 							when "workshop" 
-								.publication__category--workshop workshop 
+								.publication__category.publication__category--workshop workshop 
 							when "patent" 
-								.publication__category--patent patent 
+								.publication__category.publication__category--patent patent 
 							when "techreport" 
-								.publication__category--workshop techreport 
+								.publication__category.publication__category--workshop techreport 
 							when "talk" 
-								.publication__category--workshop talk 
+								.publication__category.publication__category--workshop talk 
 							when "thesis" 
-								.publication__category--workshop  thesis 							 
+								.publication__category.publication__category--workshop  thesis 							 
 						.publication__name #{pb.smartbooktitle}
 						.publication__date #{pb.month} #{pb.year} 
 						.publication__pages pages #{pb.pages}
