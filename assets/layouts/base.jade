@@ -29,12 +29,12 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 				.sidebar__address Politecnico di Milano
 
 				ul.sidebar__link_list
-					+sidebar__link_item('fa-home'           , 'Home'     , baseUrl + "")
+					+sidebar__link_item('fa-home'           , 'Home'     , baseUrl + "/")
 					+sidebar__link_item('fa-flask'          , 'Research' , baseUrl + "/research.html")
 					+sidebar__link_item('fa-quote-left'     , 'Blog'     , baseUrl + "/blog.html")
 					+sidebar__link_item('fa-floppy-o'       , 'Projects' , baseUrl + "/projects.html")
 					+sidebar__link_item('fa-graduation-cap' , 'Teaching' , baseUrl + "/teaching.html")
-					+sidebar__link_item('fa-user'           , 'CV'       , "http://www.vittoriozaccaria.net/deposit/cv.pdf")
+					+sidebar__link_item('fa-user'           , 'CV'       , baseUrl + "/deposit/cv.pdf")
 					+sidebar__link_item('fa-youtube-play'   , 'Videos'   , baseUrl + "/videos.html")
 					+sidebar__link_item('fa-map-marker'     , 'Address'  , baseUrl + "/address.html")
 
@@ -48,5 +48,3 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 							
 			.site_container
 				append content 
-
-
