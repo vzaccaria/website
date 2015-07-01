@@ -18,10 +18,10 @@ parse ->
         @compile-files( (-> "< #{it.orig-complete} ./node_modules/.bin/brfs - > #{it.build-target}"), ".js", g, deps)
 
     @add-plugin 'brfy', (g, deps) ->
-        @compile-files( (-> "browserify -t node-lessify -t liveify #{it.orig-complete} -o #{it.build-target}"), ".js", g, deps)
+        @compile-files( (-> "./node_modules/.bin/browserify -t node-lessify -t liveify #{it.orig-complete} -o #{it.build-target}"), ".js", g, deps)
 
     @add-plugin 'jadeBeml',(g, deps) ->
-        @compile-files( (-> "jade -O ./site.json -P -p #{it.orig-complete} < #{it.orig-complete} | beml-cli > #{it.build-target}"), ".html", g, deps )
+        @compile-files( (-> "./node_modules/.bin/jade -O ./site.json -P -p #{it.orig-complete} < #{it.orig-complete} | beml-cli > #{it.build-target}"), ".html", g, deps )
 
     @notifyStrip ast-dst
 
@@ -77,16 +77,16 @@ parse ->
         ]
 
     @collect "build-posts", -> [
-                @cmd "blog-cli md2json directory ./posts -d #name/data/posts -t ./assets/layouts/post.jade -c ./site.json"
+                @cmd "./node_modules/.bin/blog-cli md2json directory ./posts -d #name/data/posts -t ./assets/layouts/post.jade -c ./site.json"
                 ]
 
     @collect "derived", -> [
-            @cmd "blog-cli json2html directory ./#name/data/posts -d ./#name"
-            @cmd "blog-cli json2json  ./#name/data/posts -k blog -t ./assets/blog.jade -c ./site.json > ./#name/blog.html"
-            @cmd "blog-cli json2json  ./#name/data/posts > ./#name/data/index.json"
-            @cmd "blog-cli renderjson -f  ./#name/data/projects.json -t ./assets/projects.jade -c ./site.json > ./#name/projects.html"
-            @cmd "json2html-biblio-cli -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./#name/research.html"
-            @cmd "sitemap-cli generate -p http://www.vittoriozaccaria.net#baseUrl #name > #name/sitemap.xml"
+            @cmd "./node_modules/.bin/blog-cli json2html directory ./#name/data/posts -d ./#name"
+            @cmd "./node_modules/.bin/blog-cli json2json  ./#name/data/posts -k blog -t ./assets/blog.jade -c ./site.json > ./#name/blog.html"
+            @cmd "./node_modules/.bin/blog-cli json2json  ./#name/data/posts > ./#name/data/index.json"
+            @cmd "./node_modules/.bin/blog-cli renderjson -f  ./#name/data/projects.json -t ./assets/projects.jade -c ./site.json > ./#name/projects.html"
+            @cmd "./node_modules/.bin/json2html-biblio -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./#name/research.html"
+            @cmd "./node_modules/.bin/sitemap-cli generate -p http://www.vittoriozaccaria.net#baseUrl #name > #name/sitemap.xml"
             ]
 
 
@@ -96,25 +96,6 @@ parse ->
             @make "build-posts"
             @make "derived"
             ]
-
-    @collect "deploy", ->
-        @command-seq -> [
-            @make "all"
-            @cmd "blog-ftp-cli -t -l #name -r #baseUrl"
-            ]
-
-    @collect "update", ->
-        @command-seq -> [
-            @make "all"
-            @cmd "blog-ftp-cli -l #name -r #baseUrl"
-            ]
-
-    @collect "deploy-lftp", ->
-        @command-seq -> [
-            @make "all"
-            @cmd ""
-            ]
-
 
     @collect "clean", -> [
         @remove-all-targets()

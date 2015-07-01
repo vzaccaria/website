@@ -106,16 +106,16 @@ _site/fonts/fontawesome-webfont.ttf: .build/14-fontawesome-webfont.ttf
 	cp .build/14-fontawesome-webfont.ttf $@
 
 .build/15-index.html: assets/layouts/base.jade assets/index.jade
-	jade -O ./site.json -P -p assets/index.jade < assets/index.jade | beml-cli > .build/15-index.html
+	./node_modules/.bin/jade -O ./site.json -P -p assets/index.jade < assets/index.jade | beml-cli > .build/15-index.html
 
 .build/16-teaching.html: assets/layouts/base.jade assets/teaching.jade
-	jade -O ./site.json -P -p assets/teaching.jade < assets/teaching.jade | beml-cli > .build/16-teaching.html
+	./node_modules/.bin/jade -O ./site.json -P -p assets/teaching.jade < assets/teaching.jade | beml-cli > .build/16-teaching.html
 
 .build/17-videos.html: assets/layouts/base.jade assets/videos.jade
-	jade -O ./site.json -P -p assets/videos.jade < assets/videos.jade | beml-cli > .build/17-videos.html
+	./node_modules/.bin/jade -O ./site.json -P -p assets/videos.jade < assets/videos.jade | beml-cli > .build/17-videos.html
 
 .build/18-address.html: assets/layouts/base.jade assets/address.jade
-	jade -O ./site.json -P -p assets/address.jade < assets/address.jade | beml-cli > .build/18-address.html
+	./node_modules/.bin/jade -O ./site.json -P -p assets/address.jade < assets/address.jade | beml-cli > .build/18-address.html
 
 _site/index.html: .build/15-index.html
 	@mkdir -p _site/
@@ -143,7 +143,7 @@ _site/address.html: .build/18-address.html
 	cp bower_components/fastclick/lib/fastclick.js .build/22-fastclick.js
 
 .build/23-client.js: assets/css/fonts.css assets/css/obsidian.css assets/js/bundle.js assets/js/calendar.ls assets/js/client.ls assets/js/easyDirective.ls assets/js/entry.ls assets/less/bio.less assets/less/calendar.less assets/less/main.less assets/less/mixin.less assets/less/post.less assets/less/posts.less assets/less/projects.less assets/less/publications.less assets/less/research.less assets/less/reset.less assets/less/segment.less assets/less/sidebar.less assets/less/table.less assets/less/teaching.less assets/less/videos.less assets/vendor/dyncss.js assets/vendor/highlight.min.js
-	browserify -t node-lessify -t liveify assets/js/client.ls -o .build/23-client.js
+	./node_modules/.bin/browserify -t node-lessify -t liveify assets/js/client.ls -o .build/23-client.js
 
 .build/24-bundle.js: assets/img/chained-image.jpg assets/img/dyn-css-image.jpg assets/img/exemd.jpg assets/img/fsm-express-project-image.jpg assets/img/profile_pic_1_res.jpg assets/img/sidebar_picture.jpg assets/img/sweet-angle-image.jpg assets/img/webmake-image.jpg assets/js/bundle.js
 	< assets/js/bundle.js ./node_modules/.bin/brfs - > .build/24-bundle.js
@@ -168,34 +168,34 @@ build: build-assets
 
 .PHONY : cmd-26
 cmd-26: 
-	blog-cli md2json directory ./posts -d _site/data/posts -t ./assets/layouts/post.jade -c ./site.json
+	./node_modules/.bin/blog-cli md2json directory ./posts -d _site/data/posts -t ./assets/layouts/post.jade -c ./site.json
 
 .PHONY : build-posts
 build-posts: cmd-26
 
 .PHONY : cmd-27
 cmd-27: 
-	blog-cli json2html directory ./_site/data/posts -d ./_site
+	./node_modules/.bin/blog-cli json2html directory ./_site/data/posts -d ./_site
 
 .PHONY : cmd-28
 cmd-28: 
-	blog-cli json2json  ./_site/data/posts -k blog -t ./assets/blog.jade -c ./site.json > ./_site/blog.html
+	./node_modules/.bin/blog-cli json2json  ./_site/data/posts -k blog -t ./assets/blog.jade -c ./site.json > ./_site/blog.html
 
 .PHONY : cmd-29
 cmd-29: 
-	blog-cli json2json  ./_site/data/posts > ./_site/data/index.json
+	./node_modules/.bin/blog-cli json2json  ./_site/data/posts > ./_site/data/index.json
 
 .PHONY : cmd-30
 cmd-30: 
-	blog-cli renderjson -f  ./_site/data/projects.json -t ./assets/projects.jade -c ./site.json > ./_site/projects.html
+	./node_modules/.bin/blog-cli renderjson -f  ./_site/data/projects.json -t ./assets/projects.jade -c ./site.json > ./_site/projects.html
 
 .PHONY : cmd-31
 cmd-31: 
-	json2html-biblio-cli -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./_site/research.html
+	./node_modules/.bin/json2html-biblio -f ./data/biblio.json -t ./assets/research.jade -c ./site.json > ./_site/research.html
 
 .PHONY : cmd-32
 cmd-32: 
-	sitemap-cli generate -p http://www.vittoriozaccaria.net _site > _site/sitemap.xml
+	./node_modules/.bin/sitemap-cli generate -p http://www.vittoriozaccaria.net _site > _site/sitemap.xml
 
 .PHONY : derived
 derived: cmd-27 cmd-28 cmd-29 cmd-30 cmd-31 cmd-32
@@ -221,69 +221,21 @@ cmd-seq-36:
 .PHONY : all
 all: cmd-seq-36
 
-.PHONY : cmd-37
-cmd-37: 
-	make all
+.PHONY : clean-37
+clean-37: 
+	rm -rf .build/0-fsm-express-project-image.png .build/1-webmake-image.png .build/2-chained-image.jpg .build/3-dyn-css-image.jpg .build/4-exemd.jpg .build/5-fsm-express-project-image.jpg .build/6-profile_pic_1_res.jpg .build/7-sidebar_picture.jpg .build/8-sweet-angle-image.jpg .build/9-webmake-image.jpg _site/img/fsm-express-project-image.png _site/img/webmake-image.png _site/img/chained-image.jpg _site/img/dyn-css-image.jpg _site/img/exemd.jpg _site/img/fsm-express-project-image.jpg _site/img/profile_pic_1_res.jpg _site/img/sidebar_picture.jpg _site/img/sweet-angle-image.jpg _site/img/webmake-image.jpg .build/10-biblio.json .build/11-projects.json _site/data/biblio.json _site/data/projects.json .build/12-cv.pdf _site/deposit/cv.pdf .build/13-fontawesome-webfont.woff .build/14-fontawesome-webfont.ttf _site/fonts/fontawesome-webfont.woff _site/fonts/fontawesome-webfont.ttf .build/15-index.html .build/16-teaching.html .build/17-videos.html .build/18-address.html _site/index.html _site/teaching.html _site/videos.html _site/address.html .build/20-angular.min.js .build/21-ng-table.js .build/22-fastclick.js .build/23-client.js .build/24-bundle.js .build/concat-tmp19.js .build/25-concat-tmp19.min.js _site/js _site/js/client.js
 
-.PHONY : cmd-38
-cmd-38: 
-	blog-ftp-cli -t -l _site -r 
+.PHONY : clean-38
+clean-38: 
+	rm -rf .build
 
-.PHONY : cmd-seq-39
-cmd-seq-39: 
-	make cmd-37
-	make cmd-38
-
-.PHONY : deploy
-deploy: cmd-seq-39
+.PHONY : clean-39
+clean-39: 
+	mkdir -p .build
 
 .PHONY : cmd-40
 cmd-40: 
-	make all
-
-.PHONY : cmd-41
-cmd-41: 
-	blog-ftp-cli -l _site -r 
-
-.PHONY : cmd-seq-42
-cmd-seq-42: 
-	make cmd-40
-	make cmd-41
-
-.PHONY : update
-update: cmd-seq-42
-
-.PHONY : cmd-43
-cmd-43: 
-	make all
-
-.PHONY : cmd-44
-cmd-44: 
-	
-
-.PHONY : cmd-seq-45
-cmd-seq-45: 
-	make cmd-43
-	make cmd-44
-
-.PHONY : deploy-lftp
-deploy-lftp: cmd-seq-45
-
-.PHONY : clean-46
-clean-46: 
-	rm -rf .build/0-fsm-express-project-image.png .build/1-webmake-image.png .build/2-chained-image.jpg .build/3-dyn-css-image.jpg .build/4-exemd.jpg .build/5-fsm-express-project-image.jpg .build/6-profile_pic_1_res.jpg .build/7-sidebar_picture.jpg .build/8-sweet-angle-image.jpg .build/9-webmake-image.jpg _site/img/fsm-express-project-image.png _site/img/webmake-image.png _site/img/chained-image.jpg _site/img/dyn-css-image.jpg _site/img/exemd.jpg _site/img/fsm-express-project-image.jpg _site/img/profile_pic_1_res.jpg _site/img/sidebar_picture.jpg _site/img/sweet-angle-image.jpg _site/img/webmake-image.jpg .build/10-biblio.json .build/11-projects.json _site/data/biblio.json _site/data/projects.json .build/12-cv.pdf _site/deposit/cv.pdf .build/13-fontawesome-webfont.woff .build/14-fontawesome-webfont.ttf _site/fonts/fontawesome-webfont.woff _site/fonts/fontawesome-webfont.ttf .build/15-index.html .build/16-teaching.html .build/17-videos.html .build/18-address.html _site/index.html _site/teaching.html _site/videos.html _site/address.html .build/20-angular.min.js .build/21-ng-table.js .build/22-fastclick.js .build/23-client.js .build/24-bundle.js .build/concat-tmp19.js .build/25-concat-tmp19.min.js _site/js _site/js/client.js
-
-.PHONY : clean-47
-clean-47: 
-	rm -rf .build
-
-.PHONY : clean-48
-clean-48: 
-	mkdir -p .build
-
-.PHONY : cmd-49
-cmd-49: 
 	rm -rf _site/*
 
 .PHONY : clean
-clean: clean-46 clean-47 clean-48 cmd-49
+clean: clean-37 clean-38 clean-39 cmd-40
