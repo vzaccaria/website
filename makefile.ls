@@ -89,6 +89,9 @@ parse ->
             @cmd "./node_modules/.bin/sitemap-cli generate -p http://www.vittoriozaccaria.net#baseUrl #name > #name/sitemap.xml"
             ]
 
+    @collect "serve", -> [
+            @cmd "./node_modules/.bin/serve _site -p 4000"
+            ]
 
     @collect "all", ->
         @command-seq -> [
