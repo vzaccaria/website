@@ -7,7 +7,7 @@ category : infob
 tags : ['esame']
 ---
 
-Esercizio numero 1 --- Linguaggio C
+Esercizio numero 1 - Linguaggio C
 ===================================
 
 Si considerino i seguenti tipi di dato in C. Essi servono a contenere le
@@ -23,9 +23,10 @@ typedef struct // descrizione della transazione
 {
     float importo;
     Stringa nazione;
-    int timestamp; // tempo dell'acquisto espresso in secondi dal 1/1/1970.
-    // Ad es. le ore 9:00:00 del il 2015.06.29 corrispondono al 1435561200 secondo
-    //        le ore 9:01:00 del il 2015.06.29 corrispondono al 1435561260 secondo
+    int timestamp;
+	// tempo dell'acquisto espresso in secondi dal 1/1/1970.
+    // Ad es. le 9:00:00 del il 2015.06.29 = 1435561200 secondo
+    //        le 9:01:00 del il 2015.06.29 = 1435561260 secondo
     bool usato_pin; // determina se la transazione è avvenuta richiedendo il pin all'utente
 } Acquisto;
 
@@ -69,6 +70,7 @@ che possono aver subito una frode. Una carta può aver subito una frode
 se:
 
 a.  riporta due transazioni consecutive in meno di 1 minuto, oppure
+
 b.  riporta due transazioni consecutive con PIN in nazioni diverse in meno di
     un'ora.
 
@@ -120,9 +122,8 @@ int main()
 }
 ```
 
-\newpage
 
-Esercizio numero 2 --- Matlab
+Esercizio numero 2 - Matlab
 =============================
 
 Si sviluppino in Matlab le seguenti funzioni:
@@ -261,9 +262,8 @@ function P = disposizioni(s,k)
 end
 ```
 
-\newpage
 
-Esercizio numero 3 --- C con tabelle verità
+Esercizio numero 3 - C con tabelle verità
 ===========================================
 
 Sia dato il seguente programma:
